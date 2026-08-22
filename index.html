@@ -1,1 +1,1605 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090a0d">
+  <title>Compagnie Fantôme | 212th</title>
+  <link rel="icon" type="image/png" href="https://2r2d2og.github.io/site.212th/assets/img/Logo_212th.png">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#07080a;
+      --bg-2:#0b0d10;
+      --panel:#101318;
+      --panel-2:#15191f;
+      --line:#292f37;
+      --line-soft:rgba(255,255,255,.07);
+      --text:#edf0f3;
+      --muted:#9aa2ac;
+      --orange:#ff8a00;
+      --orange-2:#ffad42;
+      --orange-dim:#a95900;
+      --orange-soft:rgba(255,138,0,.10);
+      --success:#77d797;
+      --danger:#ff6b6b;
+      --shadow:0 18px 60px rgba(0,0,0,.42);
+      --nav-width:260px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--text);
+      background:
+        linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px),
+        radial-gradient(circle at 78% 14%,rgba(255,138,0,.075),transparent 28%),
+        radial-gradient(circle at 15% 80%,rgba(255,138,0,.035),transparent 24%),
+        var(--bg);
+      background-size:34px 34px,34px 34px,auto,auto,auto;
+      font-family:"Rajdhani",sans-serif;
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.28;
+      background-image:
+        radial-gradient(circle,#fff 0 1px,transparent 1.4px),
+        radial-gradient(circle,#fff 0 1px,transparent 1.4px);
+      background-size:180px 180px,260px 260px;
+      background-position:0 0,80px 110px;
+      mask-image:linear-gradient(to bottom,rgba(0,0,0,.7),transparent 90%);
+      z-index:-1;
+    }
+
+    a{color:inherit}
+    button,input{font:inherit}
+
+    /* ====== TOP BAR ====== */
+    .topbar{
+      position:fixed;
+      top:0;
+      left:var(--nav-width);
+      right:0;
+      height:58px;
+      z-index:60;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:0 24px;
+      background:rgba(7,8,10,.90);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar-left,.topbar-right{display:flex;align-items:center;gap:12px}
+    .secure{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:var(--success);
+      font-family:"Orbitron",sans-serif;
+      font-size:10px;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
+    }
+    .secure-dot{
+      width:7px;height:7px;border-radius:50%;background:var(--success);
+      box-shadow:0 0 12px rgba(119,215,151,.65);
+    }
+    .sys-label{
+      color:var(--muted);
+      font-size:13px;
+      letter-spacing:1px;
+    }
+    .clock{
+      color:#c8ced5;
+      font-family:"Orbitron",sans-serif;
+      font-size:11px;
+      letter-spacing:1px;
+    }
+
+    /* ====== SIDEBAR ====== */
+    .sidebar{
+      position:fixed;
+      inset:0 auto 0 0;
+      width:var(--nav-width);
+      z-index:70;
+      background:
+        linear-gradient(180deg,rgba(255,138,0,.055),transparent 28%),
+        #090b0e;
+      border-right:1px solid var(--line);
+      display:flex;
+      flex-direction:column;
+      box-shadow:20px 0 70px rgba(0,0,0,.20);
+    }
+    .brand{
+      min-height:145px;
+      display:flex;
+      align-items:center;
+      gap:14px;
+      padding:22px 18px;
+      border-bottom:1px solid var(--line);
+    }
+    .brand-mark{
+      width:72px;
+      height:72px;
+      flex:0 0 auto;
+      display:grid;
+      place-items:center;
+      position:relative;
+      background:transparent;
+      border:0;
+      box-shadow:none;
+    }
+    .brand-title{
+      min-width:0;
+    }
+    .brand-title small{
+      display:block;
+      color:var(--orange);
+      font-family:"Orbitron",sans-serif;
+      font-size:9px;
+      letter-spacing:1.6px;
+      margin-bottom:5px;
+    }
+    .brand-title strong{
+      display:block;
+      font-family:"Orbitron",sans-serif;
+      font-size:14px;
+      line-height:1.3;
+      text-transform:uppercase;
+      letter-spacing:.8px;
+    }
+    .brand-title span{
+      display:block;
+      margin-top:5px;
+      color:var(--muted);
+      font-size:12px;
+      letter-spacing:.5px;
+    }
+
+    .nav-title{
+      color:#67707b;
+      font-family:"Orbitron",sans-serif;
+      font-size:8px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      padding:18px 18px 8px;
+    }
+    .nav-list{
+      list-style:none;
+      padding:0 10px 14px;
+      margin:0;
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
+    .nav-link{
+      width:100%;
+      border:0;
+      color:#aeb6c0;
+      background:transparent;
+      display:flex;
+      align-items:center;
+      gap:9px;
+      text-align:left;
+      padding:11px 12px;
+      border-left:2px solid transparent;
+      border-radius:0 5px 5px 0;
+      cursor:pointer;
+      transition:.22s ease;
+    }
+    .nav-link:hover{
+      color:#fff;
+      background:rgba(255,255,255,.035);
+    }
+    .nav-link.active{
+      color:var(--orange-2);
+      background:linear-gradient(90deg,rgba(255,138,0,.12),rgba(255,138,0,.025));
+      border-left-color:var(--orange);
+    }
+    .nav-index{
+      width:36px;
+      height:36px;
+      min-width:36px;
+      display:block;
+      margin-left:-4px;
+      background-image:url("data:image/png;base64,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");
+      background-repeat:no-repeat;
+      background-position:center;
+      background-size:contain;
+      filter:drop-shadow(0 0 4px rgba(255,138,0,.12));
+      transition:transform .2s ease, filter .2s ease;
+    }
+
+    .nav-link:hover .nav-index{
+      transform:scale(1.07);
+    }
+
+    .nav-link.active .nav-index{
+      transform:scale(1.10);
+      filter:drop-shadow(0 0 7px rgba(255,138,0,.35));
+    }
+
+    .sidebar-bottom{
+      margin-top:auto;
+      padding:15px 16px 18px;
+      border-top:1px solid var(--line);
+    }
+    .access-card{
+      border:1px solid rgba(255,138,0,.18);
+      background:rgba(255,138,0,.035);
+      padding:12px;
+    }
+    .access-card small{
+      display:block;
+      color:#6d7580;
+      text-transform:uppercase;
+      letter-spacing:1px;
+    }
+    .access-card strong{
+      display:block;
+      margin-top:4px;
+      color:var(--success);
+      font-family:"Orbitron",sans-serif;
+      font-size:10px;
+      letter-spacing:1px;
+    }
+
+    /* ====== MOBILE ====== */
+    .menu-toggle{
+      display:none;
+      border:1px solid var(--line);
+      background:#11151a;
+      color:#fff;
+      width:38px;height:38px;
+      align-items:center;justify-content:center;
+      cursor:pointer;
+    }
+
+    /* ====== MAIN ====== */
+    main{
+      margin-left:var(--nav-width);
+      padding-top:58px;
+      min-height:100vh;
+    }
+    .page{
+      display:none;
+      animation:fadeIn .28s ease;
+    }
+    .page.active{display:block}
+    @keyframes fadeIn{
+      from{opacity:0;transform:translateY(5px)}
+      to{opacity:1;transform:none}
+    }
+
+    .page-wrap{
+      max-width:1360px;
+      margin:auto;
+      padding:38px 38px 70px;
+    }
+
+    .page-kicker{
+      color:var(--orange);
+      font-family:"Orbitron",sans-serif;
+      font-size:10px;
+      letter-spacing:2.2px;
+      text-transform:uppercase;
+    }
+    .page-header{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:26px;
+      margin-bottom:28px;
+      padding-bottom:22px;
+      border-bottom:1px solid var(--line);
+    }
+    .page-header h1{
+      margin:7px 0 0;
+      font-family:"Orbitron",sans-serif;
+      font-size:clamp(28px,4vw,46px);
+      text-transform:uppercase;
+      letter-spacing:1px;
+    }
+    .page-header p{
+      margin:8px 0 0;
+      max-width:720px;
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.5;
+    }
+    .file-code{
+      color:#727b86;
+      font-family:"Orbitron",sans-serif;
+      font-size:9px;
+      letter-spacing:1.5px;
+      white-space:nowrap;
+    }
+
+    /* ====== HOME ====== */
+    .home{
+      min-height:calc(100vh - 58px);
+      position:relative;
+      display:flex;
+      align-items:center;
+    }
+    .home-inner{
+      width:100%;
+      max-width:1360px;
+      margin:auto;
+      padding:56px 38px 70px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1.25fr) minmax(360px,.75fr);
+      gap:42px;
+      align-items:center;
+    }
+    .hero-code{
+      display:inline-flex;
+      gap:9px;
+      align-items:center;
+      padding:7px 10px;
+      border:1px solid rgba(255,138,0,.22);
+      color:var(--orange-2);
+      background:rgba(255,138,0,.045);
+      font-family:"Orbitron",sans-serif;
+      font-size:9px;
+      letter-spacing:1.7px;
+      text-transform:uppercase;
+    }
+    .hero h1{
+      margin:24px 0 16px;
+      font-family:"Orbitron",sans-serif;
+      font-size:clamp(44px,7vw,88px);
+      line-height:.95;
+      text-transform:uppercase;
+      letter-spacing:1px;
+    }
+    .hero h1 span{color:var(--orange)}
+    .hero-sub{
+      max-width:780px;
+      color:#c0c6cd;
+      font-size:20px;
+      line-height:1.55;
+    }
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:28px;
+    }
+    .btn{
+      border:1px solid var(--line);
+      background:#111419;
+      color:#d9dde2;
+      padding:12px 16px;
+      cursor:pointer;
+      text-decoration:none;
+      font-family:"Orbitron",sans-serif;
+      font-size:9px;
+      letter-spacing:1.4px;
+      text-transform:uppercase;
+      transition:.2s ease;
+    }
+    .btn:hover{
+      border-color:#56606c;
+      transform:translateY(-1px);
+    }
+    .btn.primary{
+      color:#08090b;
+      background:var(--orange);
+      border-color:var(--orange);
+      font-weight:800;
+      box-shadow:0 8px 28px rgba(255,138,0,.14);
+    }
+    .btn.primary:hover{background:var(--orange-2)}
+
+    .hero-terminal{
+      position:relative;
+      min-height:430px;
+      border:1px solid #2b3139;
+      background:
+        linear-gradient(rgba(7,8,10,.68), rgba(7,8,10,.88)),
+        url("https://i.pinimg.com/1200x/dc/9f/4f/dc9f4ff14c5065034fd58b9499cc7cbf.jpg") center center / cover no-repeat;
+      box-shadow:var(--shadow);
+      padding:22px;
+      overflow:hidden;
+    }
+    .hero-terminal::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 3px,
+        rgba(255,255,255,.018) 4px
+      );
+    }
+    .terminal-head{
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      border-bottom:1px solid var(--line);
+      padding-bottom:14px;
+      margin-bottom:18px;
+    }
+    .terminal-head strong{
+      font-family:"Orbitron",sans-serif;
+      font-size:10px;
+      color:var(--orange-2);
+      letter-spacing:1.4px;
+      text-transform:uppercase;
+    }
+    .terminal-head span{
+      color:var(--success);
+      font-size:12px;
+    }
+    .terminal-rows{
+      position:relative;
+      display:grid;
+      gap:8px;
+    }
+    .terminal-row{
+      display:grid;
+      grid-template-columns:120px 1fr;
+      gap:12px;
+      padding:8px 0;
+      border-bottom:1px solid rgba(255,255,255,.055);
+      font-size:14px;
+    }
+    .terminal-row span:first-child{
+      color:#6d7680;
+      text-transform:uppercase;
+      letter-spacing:1px;
+    }
+    .terminal-row span:last-child{color:#d7dbe0}
+    .terminal-row .online{color:var(--success)!important}
+
+    .quick-stats{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:12px;
+      margin-top:34px;
+    }
+    .stat{
+      border:1px solid var(--line);
+      background:rgba(16,19,24,.8);
+      padding:17px;
+    }
+    .stat small{
+      color:#6f7882;
+      text-transform:uppercase;
+      letter-spacing:1.2px;
+    }
+    .stat strong{
+      display:block;
+      margin-top:7px;
+      color:#fff;
+      font-family:"Orbitron",sans-serif;
+      font-size:17px;
+    }
+
+    /* ====== COMMON CARDS ====== */
+    .grid{
+      display:grid;
+      gap:16px;
+    }
+    .grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid.cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .card{
+      border:1px solid var(--line);
+      background:linear-gradient(145deg,rgba(255,138,0,.025),transparent 45%),var(--panel);
+      padding:22px;
+      box-shadow:0 10px 34px rgba(0,0,0,.12);
+      transition:.22s ease;
+    }
+    .card:hover{
+      border-color:#3a424c;
+      transform:translateY(-2px);
+    }
+    .card.accent{border-top:2px solid var(--orange-dim)}
+    .card h3{
+      margin:8px 0 9px;
+      font-family:"Orbitron",sans-serif;
+      font-size:15px;
+      text-transform:uppercase;
+      letter-spacing:.6px;
+    }
+    .card p{
+      margin:0;
+      color:#aeb5bd;
+      font-size:16px;
+      line-height:1.55;
+    }
+    .card-code{
+      color:var(--orange);
+      font-family:"Orbitron",sans-serif;
+      font-size:8px;
+      letter-spacing:1.8px;
+      text-transform:uppercase;
+    }
+    .iconbox{
+      width:42px;height:42px;
+      display:grid;place-items:center;
+      border:1px solid rgba(255,138,0,.25);
+      background:rgba(255,138,0,.055);
+      color:var(--orange-2);
+      margin-bottom:12px;
+      font-family:"Orbitron",sans-serif;
+      font-weight:700;
+      font-size:12px;
+    }
+
+    /* ====== INFO PANEL ====== */
+    .info-strip{
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:1px;
+      background:var(--line);
+      border:1px solid var(--line);
+      margin:24px 0;
+    }
+    .info-item{
+      background:#0f1216;
+      padding:17px;
+    }
+    .info-item small{
+      color:#69727d;
+      text-transform:uppercase;
+      letter-spacing:1.1px;
+    }
+    .info-item strong{
+      display:block;
+      margin-top:5px;
+      color:#dfe3e8;
+    }
+
+    /* ====== ORG CHART ====== */
+    .org{
+      display:grid;
+      gap:18px;
+      justify-items:center;
+    }
+    .org-row{
+      width:100%;
+      display:flex;
+      justify-content:center;
+      gap:16px;
+      flex-wrap:wrap;
+      position:relative;
+    }
+    .org-node{
+      width:min(330px,100%);
+      text-align:center;
+      border:1px solid var(--line);
+      background:#101318;
+      padding:18px;
+      position:relative;
+    }
+    .org-node.primary{
+      border-color:rgba(255,138,0,.55);
+      background:linear-gradient(180deg,rgba(255,138,0,.08),rgba(255,138,0,.02)),#101318;
+    }
+    .org-node .rank{
+      color:var(--orange);
+      font-family:"Orbitron",sans-serif;
+      font-size:9px;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
+    }
+    .org-node h3{
+      margin:7px 0 3px;
+      font-size:18px;
+      font-family:"Orbitron",sans-serif;
+    }
+    .org-node p{
+      margin:0;color:var(--muted)
+    }
+    .org-connector{
+      width:1px;height:22px;background:#3b424c;
+    }
+
+    /* ====== TABLE ====== */
+    .table-wrap{
+      width:100%;
+      overflow:auto;
+      border:1px solid var(--line);
+      background:#0f1216;
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:780px;
+    }
+    th,td{
+      padding:14px 16px;
+      text-align:left;
+      border-bottom:1px solid var(--line-soft);
+    }
+    th{
+      color:#747d88;
+      background:#0c0f13;
+      font-family:"Orbitron",sans-serif;
+      font-size:8px;
+      letter-spacing:1.4px;
+      text-transform:uppercase;
+    }
+    td{
+      color:#cdd2d8;
+      font-size:15px;
+    }
+    tbody tr:hover{background:rgba(255,255,255,.018)}
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:4px 8px;
+      border:1px solid rgba(255,138,0,.20);
+      background:rgba(255,138,0,.055);
+      color:var(--orange-2);
+      font-size:12px;
+    }
+    .tag.green{
+      color:var(--success);
+      border-color:rgba(119,215,151,.20);
+      background:rgba(119,215,151,.045);
+    }
+
+    .table-tools{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+      margin:0 0 12px;
+    }
+    .search{
+      min-width:280px;
+      border:1px solid var(--line);
+      color:#d9dde2;
+      background:#0d1014;
+      outline:none;
+      padding:10px 12px;
+    }
+    .search:focus{border-color:rgba(255,138,0,.42)}
+
+    /* ====== TIMELINE / RULES ====== */
+    .rule-list{
+      display:grid;
+      gap:12px;
+    }
+    .rule{
+      display:grid;
+      grid-template-columns:70px 1fr;
+      border:1px solid var(--line);
+      background:#101318;
+      min-height:92px;
+    }
+    .rule-num{
+      display:grid;place-items:center;
+      border-right:1px solid var(--line);
+      color:var(--orange);
+      font-family:"Orbitron",sans-serif;
+      font-weight:700;
+      background:rgba(255,138,0,.03);
+    }
+    .rule-body{padding:16px 18px}
+    .rule-body h3{
+      margin:0 0 5px;
+      font-family:"Orbitron",sans-serif;
+      font-size:13px;
+      text-transform:uppercase;
+    }
+    .rule-body p{
+      margin:0;color:#aeb5bd;line-height:1.5
+    }
+
+    /* ====== DOCUMENTS ====== */
+    .doc-card{
+      border:1px solid var(--line);
+      background:#101318;
+      padding:18px;
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      transition:.2s;
+    }
+    .doc-card:hover{border-color:#434c57}
+    .doc-icon{
+      width:42px;height:52px;
+      display:grid;place-items:center;
+      border:1px solid rgba(255,138,0,.23);
+      color:var(--orange);
+      font-family:"Orbitron",sans-serif;
+      font-size:10px;
+      flex:0 0 auto;
+    }
+    .doc-card h3{
+      margin:0 0 5px;
+      font-family:"Orbitron",sans-serif;
+      font-size:13px;
+    }
+    .doc-card p{
+      margin:0 0 9px;
+      color:var(--muted);
+      line-height:1.45;
+    }
+    .doc-meta{
+      color:#68717c;
+      font-size:12px;
+    }
+
+    /* ====== FOOTER ====== */
+    .footer{
+      border-top:1px solid var(--line);
+      color:#69727d;
+      text-align:center;
+      padding:24px 20px;
+      font-size:13px;
+    }
+    .footer strong{color:var(--orange)}
+
+
+    /* ====== LOGOS OFFICIELS ====== */
+    .brand-mark img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
+      padding:0;
+    }
+
+    .unit-logo-row{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin-top:22px;
+      padding:14px 16px;
+      border:1px solid var(--line);
+      background:#0f1216;
+      max-width:560px;
+    }
+
+    .unit-logo-row img{
+      width:58px;
+      height:58px;
+      object-fit:contain;
+      flex:0 0 auto;
+    }
+
+    .unit-logo-row small{
+      display:block;
+      color:#737c87;
+      text-transform:uppercase;
+      letter-spacing:1.2px;
+    }
+
+    .unit-logo-row strong{
+      display:block;
+      margin-top:4px;
+      font-family:"Orbitron",sans-serif;
+      font-size:12px;
+      color:#eef1f4;
+      text-transform:uppercase;
+    }
+
+    .vacant{
+      color:#707984;
+      font-style:italic;
+    }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width:1120px){
+      :root{--nav-width:225px}
+      .hero-grid{grid-template-columns:1fr}
+      .hero-terminal{min-height:auto}
+      .quick-stats{grid-template-columns:repeat(2,1fr)}
+      .grid.cols-4{grid-template-columns:repeat(2,1fr)}
+      .grid.cols-3{grid-template-columns:repeat(2,1fr)}
+    }
+
+    @media (max-width:780px){
+      :root{--nav-width:0px}
+      .sidebar{
+        width:280px;
+        transform:translateX(-100%);
+        transition:.25s ease;
+      }
+      .sidebar.open{transform:translateX(0)}
+      .topbar{
+        left:0;
+        padding:0 14px;
+      }
+      .menu-toggle{display:flex}
+      main{margin-left:0}
+      .page-wrap,.home-inner{padding:26px 16px 52px}
+      .page-header{align-items:flex-start;flex-direction:column}
+      .file-code{white-space:normal}
+      .grid.cols-2,.grid.cols-3,.grid.cols-4{grid-template-columns:1fr}
+      .info-strip{grid-template-columns:1fr}
+      .hero h1{font-size:clamp(42px,14vw,68px)}
+      .hero-sub{font-size:18px}
+      .hero-terminal{padding:16px}
+      .terminal-logo{width:130px;height:130px;font-size:34px}
+      .quick-stats{grid-template-columns:1fr 1fr}
+      .table-tools{align-items:stretch;flex-direction:column}
+      .search{min-width:0;width:100%}
+      .topbar .sys-label{display:none}
+      .rule{grid-template-columns:52px 1fr}
+    }
+
+    @media (max-width:460px){
+      .topbar-right .clock{display:none}
+      .quick-stats{grid-template-columns:1fr}
+      .brand{min-height:125px}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-mark"><img src="https://2r2d2og.github.io/site.212th/assets/img/Logo_212th.png" alt="Logo du 212e Bataillon d'attaque"></div>
+      <div class="brand-title">
+        <small>212e Bataillon d'attaque</small>
+        <strong>Compagnie Fantôme</strong>
+        <span>Compagnie Fantôme</span>
+      </div>
+    </div>
+
+    <div class="nav-title">Base de données</div>
+
+    <ul class="nav-list">
+      <li><button class="nav-link active" data-page="accueil"><span class="nav-index" aria-hidden="true"></span>Accueil</button></li>
+      <li><button class="nav-link" data-page="compagnie"><span class="nav-index" aria-hidden="true"></span>Compagnie Fantôme</button></li>
+      <li><button class="nav-link" data-page="hierarchie"><span class="nav-index" aria-hidden="true"></span>Hiérarchie</button></li>
+      <li><button class="nav-link" data-page="effectif"><span class="nav-index" aria-hidden="true"></span>Effectif</button></li>
+      <li><button class="nav-link" data-page="grades"><span class="nav-index" aria-hidden="true"></span>Grades</button></li>
+      <li><button class="nav-link" data-page="specialites"><span class="nav-index" aria-hidden="true"></span>Spécialités</button></li>
+      <li><button class="nav-link" data-page="formations"><span class="nav-index" aria-hidden="true"></span>Formations</button></li>
+      <li><button class="nav-link" data-page="reglement"><span class="nav-index" aria-hidden="true"></span>Règlement</button></li>
+      <li><button class="nav-link" data-page="documents"><span class="nav-index" aria-hidden="true"></span>Documents</button></li>
+    </ul>
+
+    <div class="sidebar-bottom">
+      <div class="access-card">
+        <small>Niveau d'accès</small>
+        <strong>ACCÈS AUTORISÉ - NIVEAU 01</strong>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===================== TOPBAR ===================== -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu">☰</button>
+      <span class="secure"><span class="secure-dot"></span>Connexion sécurisée</span>
+      <span class="sys-label">RÉPUBLIQUE GALACTIQUE // RÉSEAU MILITAIRE</span>
+    </div>
+    <div class="topbar-right">
+      <span class="clock" id="clock">--:--:--</span>
+    </div>
+  </header>
+
+  <!-- ===================== MAIN ===================== -->
+  <main>
+
+    <!-- ACCUEIL -->
+    <section class="page active" id="accueil">
+      <div class="home">
+        <div class="home-inner">
+          <div class="hero-grid">
+            <div class="hero">
+              <div class="hero-code">INTRANET // 212-CF-UTILISATEUR</div>
+
+<h1>Compagnie<br><span>Fantôme</span></h1>
+
+              <p class="hero-sub">
+                INTRANET de la Compagnie Fantôme du 212th Bataillon d'Attaque.
+                Accès aux effectifs, doctrines, formations, spécialités et procédures opérationnelles.
+              </p>
+
+              <div class="unit-logo-row">
+                <img src="https://2r2d2og.github.io/site.212th/assets/img/Logo_212th.png" alt="Logo du 212th">
+                <div>
+                  <small>Affiliation</small>
+                  <strong>Le 212e Bataillon d'attaque - Compagnie Fantôme</strong>
+                </div>
+              </div>
+
+              <div class="hero-actions">
+                <button class="btn primary" data-go="compagnie">Accéder aux archives</button>
+                <button class="btn" data-go="effectif">Consulter l'effectif</button>
+              </div>
+
+              <div class="quick-stats">
+                <div class="stat">
+                  <small>Unité</small>
+                  <strong>212th</strong>
+                </div>
+                <div class="stat">
+                  <small>Effectif CF</small>
+                  <strong>5 / 10</strong>
+                </div>
+                <div class="stat">
+                  <small>Commandement</small>
+                  <strong>2224 Cody</strong>
+                </div>
+                <div class="stat">
+                  <small>ARC Spé</small>
+                  <strong>9329 Harox</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-terminal">
+              <div class="terminal-head">
+                <strong>Dossier d'identification</strong>
+                <span>● EN LIGNE</span>
+              </div>
+
+<div class="terminal-rows">
+                <div class="terminal-row">
+                  <span>Désignation</span>
+                  <span>Compagnie Fantôme</span>
+                </div>
+                <div class="terminal-row">
+                  <span>Affiliation</span>
+                  <span>212e Bataillon d'attaque</span>
+                </div>
+                <div class="terminal-row">
+                  <span>Armée</span>
+                  <span>Grande Armée de la République</span>
+                </div>
+                <div class="terminal-row">
+                  <span>Statut</span>
+                  <span class="online">OPÉRATIONNEL</span>
+                </div>
+                <div class="terminal-row">
+                  <span>Accès</span>
+                  <span>Personnel autorisé uniquement</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <strong>COMPAGNIE FANTÔME</strong> - 212E BATAILLON D'ATTAQUE - SUPERVISEUR 2204 "TRAPPER"
+      </div>
+    </section>
+
+    <!-- COMPAGNIE -->
+    <section class="page" id="compagnie">
+      <div class="page-wrap">
+        <div class="page-header">
+          <div>
+            <span class="page-kicker">Dossier 02 // Unité</span>
+            <h1>Compagnie Fantôme</h1>
+            <p>Présentation générale de l'unité, de son rôle et de sa doctrine opérationnelle.</p>
+          </div>
+          <div class="file-code">FILE // CF-UNIT-212</div>
+        </div>
+
+        <div class="info-strip">
+          <div class="info-item">
+            <small>Formation</small>
+            <strong>212th Bataillon d'Attaque</strong>
+          </div>
+          <div class="info-item">
+            <small>Type d'unité</small>
+            <strong>Compagnie Fantôme // unité spécialisée</strong>
+          </div>
+          <div class="info-item">
+            <small>Doctrine</small>
+            <strong>Mobilité // Coordination // Discipline</strong>
+          </div>
+        </div>
+
+        <div class="grid cols-2">
+          <article class="card accent">
+            <span class="card-code">CF // 01</span>
+            <h3>Présentation</h3>
+            <p>
+              La Compagnie Fantôme constitue une formation du 212th Bataillon d'Attaque.
+              Elle intervient dans des opérations terrestres, des sécurisations de zones,
+              des assauts coordonnés et des engagements en environnement urbain.
+            </p>
+          </article>
+
+          <article class="card accent">
+            <span class="card-code">CF // 02</span>
+            <h3>Doctrine</h3>
+            <p>
+              L'unité privilégie la cohésion, la progression coordonnée et le respect de la chaîne de commandement.
+              Chaque soldat doit être capable de s'intégrer à une escouade et d'exécuter rapidement les ordres reçus.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="iconbox">OPS</div>
+            <span class="card-code">Mission</span>
+            <h3>Opérations</h3>
+            <p>Assaut, défense, sécurisation, patrouille, escorte et intervention en zone contestée.</p>
+          </article>
+
+          <article class="card">
+            <div class="iconbox">CQB</div>
+            <span class="card-code">Capacité</span>
+            <h3>Combat urbain</h3>
+            <p>Progression en bâtiment, sécurisation de pièces, gestion des angles et coordination rapprochée.</p>
+          </article>
+
+          <article class="card">
+            <div class="iconbox">COM</div>
+            <span class="card-code">Commandement</span>
+            <h3>Chaîne hiérarchique</h3>
+            <p>Le maintien d'une chaîne de commandement claire garantit l'efficacité de l'unité sur le terrain.</p>
+          </article>
+
+          <article class="card">
+            <div class="iconbox">REP</div>
+            <span class="card-code">Identité</span>
+            <h3>Valeurs</h3>
+            <p>Discipline, loyauté, esprit de corps, efficacité, responsabilité et respect de l'image du 212th.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HIERARCHIE -->
+    <section class="page" id="hierarchie">
+      <div class="page-wrap">
+        <div class="page-header">
+          <div>
+            <span class="page-kicker">Dossier 03 // Commandement</span>
+            <h1>Hiérarchie</h1>
+            <p>Organisation générale de la Compagnie Fantôme et répartition des responsabilités.</p>
+          </div>
+          <div class="file-code">FILE // CF-CMD-03</div>
+        </div>
+
+        <div class="org">
+          <div class="org-row">
+            <div class="org-node primary">
+              <span class="rank">CF-L // Commandement</span>
+              <h3>2224 Cody</h3>
+              <p>Leader de la Compagnie Fantôme, direction générale et supervision des opérations.</p>
+            </div>
+          </div>
+
+          <div class="org-connector"></div>
+
+          <div class="org-row">
+            <div class="org-node">
+              <span class="rank">CF-CL // Second</span>
+              <h3>5509 Waxer</h3>
+              <p>Adjoint au commandement, encadrement et relais direct du CF-L.</p>
+            </div>
+            <div class="org-node">
+              <span class="rank">Corps sous-officier</span>
+              <h3>Sous-officiers</h3>
+              <p>Encadrement direct, discipline et transmission des ordres.</p>
+            </div>
+          </div>
+
+          <div class="org-connector"></div>
+
+          <div class="org-row">
+            <div class="org-node">
+              <span class="rank">Troupes</span>
+              <h3>Soldats</h3>
+              <p>Force opérationnelle principale de la Compagnie Fantôme.</p>
+            </div>
+            <div class="org-node">
+              <span class="rank">Personnel qualifié</span>
+              <h3>Spécialistes</h3>
+              <p>Personnel disposant de qualifications et fonctions spécifiques.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EFFECTIF -->
+    <section class="page" id="effectif">
+      <div class="page-wrap">
+        <div class="page-header">
+          <div>
+            <span class="page-kicker">Dossier 04 // Personnel</span>
+            <h1>Effectif</h1>
+            <p>Registre actuel de la Compagnie Fantôme : 5 postes CF occupés sur 10, avec un ARC spécialisé rattaché à l'unité.</p>
+          </div>
+          <div class="file-code">FILE // CF-ROSTER</div>
+        </div>
+
+        <div class="table-tools">
+          <span class="tag green">● REGISTRE ACTIF</span>
+          <input class="search" id="rosterSearch" type="search" placeholder="Rechercher un matricule, nom, grade...">
+        </div>
+
+        <div class="table-wrap">
+          <table id="rosterTable">
+            <thead>
+              <tr>
+                <th>Matricule</th>
+                <th>Nom</th>
+                <th>Grade</th>
+                <th>Spécialité</th>
+                <th>Statut</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>CF-L</strong></td>
+                <td><strong>2224 Cody</strong></td>
+                <td><span class="tag">Leader</span></td>
+                <td>Commandement</td>
+                <td><span class="tag green">Actif</span></td>
+              </tr>
+              <tr>
+                <td><strong>CF-CL</strong></td>
+                <td>5509 Waxer</td>
+                <td><span class="tag">Co-Leader</span></td>
+                <td>Commandement</td>
+                <td><span class="tag green">Actif</span></td>
+              </tr>
+              <tr>
+                <td>CF-2</td>
+                <td class="vacant">Poste vacant</td>
+                <td>—</td>
+                <td>—</td>
+                <td><span class="tag">Libre</span></td>
+              </tr>
+              <tr>
+                <td>CF-3</td>
+                <td class="vacant">Poste vacant</td>
+                <td>—</td>
+                <td>—</td>
+                <td><span class="tag">Libre</span></td>
+              </tr>
+              <tr>
+                <td>CF-4</td>
+                <td class="vacant">Poste vacant</td>
+                <td>—</td>
+                <td>—</td>
+                <td><span class="tag">Libre</span></td>
+              </tr>
+              <tr>
+                <td>CF-5</td>
+                <td>9104 Boil</td>
+                <td>Membre CF</td>
+                <td>Standard</td>
+                <td><span class="tag green">Actif</span></td>
+              </tr>
+              <tr>
+                <td>CF-6</td>
+                <td>9337 Snow</td>
+                <td>Membre CF</td>
+                <td>Standard</td>
+                <td><span class="tag green">Actif</span></td>
+              </tr>
+              <tr>
+                <td>CF-7</td>
+                <td class="vacant">Poste vacant</td>
+                <td>—</td>
+                <td>—</td>
+                <td><span class="tag">Libre</span></td>
+              </tr>
+              <tr>
+                <td>CF-8</td>
+                <td class="vacant">Poste vacant</td>
+                <td>—</td>
+                <td>—</td>
+                <td><span class="tag">Libre</span></td>
+              </tr>
+              <tr>
+                <td>CF-9</td>
+                <td>2204 Trapper</td>
+                <td>Membre CF</td>
+                <td>Standard</td>
+                <td><span class="tag green">Actif</span></td>
+              </tr>
+              <tr>
+                <td><strong>ARC Spé</strong></td>
+                <td><strong>9329 Harox</strong></td>
+                <td><span class="tag">ARC</span></td>
+                <td>ARC Spécialisé</td>
+                <td><span class="tag green">Actif</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRADES -->
+    <section class="page" id="grades">
+      <div class="page-wrap">
+        <div class="page-header">
+          <div>
+            <span class="page-kicker">Dossier 05 // Progression</span>
+            <h1>Grades</h1>
+            <p>Présentation de la structure de progression et des responsabilités associées à chaque niveau.</p>
+          </div>
+          <div class="file-code">FILE // CF-RANKS</div>
+        </div>
+
+        <div class="grid cols-3">
+          <article class="card accent">
+            <span class="card-code">Niveau 06</span>
+            <h3>Commandement</h3>
+            <p>Direction de l'unité, validation des décisions majeures et supervision générale.</p>
+          </article>
+          <article class="card accent">
+            <span class="card-code">Niveau 05</span>
+            <h3>Officier</h3>
+            <p>Organisation des opérations, encadrement des troupes et responsabilités de formation.</p>
+          </article>
+          <article class="card accent">
+            <span class="card-code">Niveau 04</span>
+            <h3>Sous-officier</h3>
+            <p>Encadrement de proximité, gestion de petites unités et maintien de la discipline.</p>
+          </article>
+          <article class="card">
+            <span class="card-code">Niveau 03</span>
+            <h3>Caporal</h3>
+            <p>Premier niveau d'encadrement et soutien direct aux sous-officiers.</p>
+          </article>
+          <article class="card">
+            <span class="card-code">Niveau 02</span>
+            <h3>Soldat confirmé</h3>
+            <p>Membre expérimenté ayant démontré son sérieux et son efficacité sur le terrain.</p>
+          </article>
+          <article class="card">
+            <span class="card-code">Niveau 01</span>
+            <h3>Soldat</h3>
+            <p>Membre opérationnel de la compagnie, soumis aux formations et directives de l'unité.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPECIALITES -->
+    <section class="page" id="specialites">
+      <div class="page-wrap">
+        <div class="page-header">
+          <div>
+            <span class="page-kicker">Dossier 06 // Qualifications</span>
+            <h1>Spécialités</h1>
+            <p>Fonctions et qualifications pouvant être attribuées aux membres de la compagnie.</p>
+          </div>
+          <div class="file-code">FILE // CF-SPEC</div>
+        </div>
+
+        <div class="grid cols-3">
+          <article class="card accent">
+            <div class="iconbox">AS</div>
+            <span class="card-code">Spécialité 01</span>
+            <h3>Assaut</h3>
+            <p>Combattant de première ligne spécialisé dans les engagements offensifs et les progressions rapides.</p>
+          </article>
+          <article class="card accent">
+            <div class="iconbox">MED</div>
+            <span class="card-code">Spécialité 02</span>
+            <h3>Médecin</h3>
+            <p>Prise en charge des blessés, stabilisation et maintien de la capacité opérationnelle du groupe.</p>
+          </article>
+          <article class="card accent">
+            <div class="iconbox">HW</div>
+            <span class="card-code">Spécialité 03</span>
+            <h3>Armes lourdes</h3>
+            <p>Appui-feu, couverture de progression et neutralisation de cibles renforcées.</p>
+          </article>
+          <article class="card">
+            <div class="iconbox">REC</div>
+            <span class="card-code">Spécialité 04</span>
+            <h3>Reconnaissance</h3>
+            <p>Observation du terrain, identification des menaces et transmission des renseignements utiles.</p>
+          </article>
+          <article class="card">
+            <div class="iconbox">DEM</div>
+            <span class="card-code">Spécialité 05</span>
+            <h3>Démolition</h3>
+            <p>Gestion des explosifs, ouverture d'axes et destruction d'objectifs désignés.</p>
+          </article>
+          <article class="card">
+            <div class="iconbox">COM</div>
+            <span class="card-code">Spécialité 06</span>
+            <h3>Transmission</h3>
+            <p>Gestion des communications, relais d'informations et coordination radio durant les opérations.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMATIONS -->
+    <section class="page" id="formations">
+      <div class="page-wrap">
+        <div class="page-header">
+          <div>
+            <span class="page-kicker">Dossier 07 // Entraînement</span>
+            <h1>Formations</h1>
+            <p>Référentiel des entraînements et compétences développées au sein de la Compagnie Fantôme.</p>
+          </div>
+          <div class="file-code">FILE // CF-TRAINING</div>
+        </div>
+
+        <div class="grid cols-2">
+          <article class="card accent">
+            <span class="card-code">TRN // 01</span>
+            <h3>Formation CQB</h3>
+            <p>
+              Progression en bâtiment, angles, entrées de pièces, répartition des secteurs
+              et réaction face à une menace en environnement clos.
+            </p>
+          </article>
+          <article class="card accent">
+            <span class="card-code">TRN // 02</span>
+            <h3>Combat d'escouade</h3>
+            <p>
+              Déplacements coordonnés, couverture mutuelle, lignes de tir et maintien de la cohésion.
+            </p>
+          </article>
+          <article class="card">
+            <span class="card-code">TRN // 03</span>
+            <h3>Commandement</h3>
+            <p>
+              Prise de décision, transmission d'ordres, gestion d'une escouade et communication opérationnelle.
+            </p>
+          </article>
+          <article class="card">
+            <span class="card-code">TRN // 04</span>
+            <h3>Procédures radio</h3>
+            <p>
+              Messages courts, identification claire, transmissions utiles et limitation de la saturation radio.
+            </p>
+          </article>
+          <article class="card">
+            <span class="card-code">TRN // 05</span>
+            <h3>Défense de position</h3>
+            <p>
+              Organisation d'un périmètre, secteurs de tir, rotations et réaction face à une attaque.
+            </p>
+          </article>
+          <article class="card">
+            <span class="card-code">TRN // 06</span>
+            <h3>Assaut coordonné</h3>
+            <p>
+              Préparation d'un assaut, répartition des rôles, progression et sécurisation de l'objectif.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- REGLEMENT -->
+    <section class="page" id="reglement">
+      <div class="page-wrap">
+        <div class="page-header">
+          <div>
+            <span class="page-kicker">Dossier 08 // Directives</span>
+            <h1>Règlement</h1>
+            <p>Principes de fonctionnement et règles générales applicables aux membres de la Compagnie Fantôme.</p>
+          </div>
+          <div class="file-code">FILE // CF-RULES</div>
+        </div>
+
+        <div class="rule-list">
+          <article class="rule">
+            <div class="rule-num">01</div>
+            <div class="rule-body">
+              <h3>Respect de la hiérarchie</h3>
+              <p>Les ordres donnés dans le cadre du service doivent être suivis et la chaîne de commandement respectée.</p>
+            </div>
+          </article>
+
+          <article class="rule">
+            <div class="rule-num">02</div>
+            <div class="rule-body">
+              <h3>Discipline</h3>
+              <p>Chaque membre doit conserver un comportement sérieux et adapté à l'image de la Compagnie Fantôme.</p>
+            </div>
+          </article>
+
+          <article class="rule">
+            <div class="rule-num">03</div>
+            <div class="rule-body">
+              <h3>Cohésion</h3>
+              <p>Les soldats restent avec leur groupe, évitent les initiatives isolées et privilégient la coordination.</p>
+            </div>
+          </article>
+
+          <article class="rule">
+            <div class="rule-num">04</div>
+            <div class="rule-body">
+              <h3>Communications</h3>
+              <p>Les communications opérationnelles doivent rester utiles, compréhensibles et aussi courtes que possible.</p>
+            </div>
+          </article>
+
+          <article class="rule">
+            <div class="rule-num">05</div>
+            <div class="rule-body">
+              <h3>Image du 212th</h3>
+              <p>Le comportement de chaque membre participe directement à la réputation de la compagnie et du bataillon.</p>
+            </div>
+          </article>
+
+          <article class="rule">
+            <div class="rule-num">06</div>
+            <div class="rule-body">
+              <h3>Progression</h3>
+              <p>Les promotions et responsabilités sont accordées en fonction de l'implication, de la compétence et du comportement.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOCUMENTS -->
+    <section class="page" id="documents">
+      <div class="page-wrap">
+        <div class="page-header">
+          <div>
+            <span class="page-kicker">Dossier 09 // Archives</span>
+            <h1>Documents</h1>
+            <p>Espace destiné aux procédures, modèles de rapports, comptes rendus et documents internes.</p>
+          </div>
+          <div class="file-code">FILE // CF-DOCS</div>
+        </div>
+
+        <div class="grid cols-2">
+          <article class="doc-card">
+            <div class="doc-icon">DOC</div>
+            <div>
+              <h3>Template de rapport de mission</h3>
+              <p>Modèle standardisé pour la rédaction d'un compte rendu d'opération.</p>
+              <div class="doc-meta">TYPE // PROCÉDURE • STATUT // À AJOUTER</div>
+            </div>
+          </article>
+
+          <article class="doc-card">
+            <div class="doc-icon">TRN</div>
+            <div>
+              <h3>Support de formation CQB</h3>
+              <p>Principes de progression et rappel des procédures de combat rapproché.</p>
+              <div class="doc-meta">TYPE // FORMATION • STATUT // À AJOUTER</div>
+            </div>
+          </article>
+
+          <article class="doc-card">
+            <div class="doc-icon">OPS</div>
+            <div>
+              <h3>Procédures opérationnelles</h3>
+              <p>Document regroupant les procédures générales utilisées en opération.</p>
+              <div class="doc-meta">TYPE // OPÉRATIONS • STATUT // À AJOUTER</div>
+            </div>
+          </article>
+
+          <article class="doc-card">
+            <div class="doc-icon">ADM</div>
+            <div>
+              <h3>Règlement interne</h3>
+              <p>Version détaillée des règles et principes applicables à la compagnie.</p>
+              <div class="doc-meta">TYPE // ADMINISTRATION • STATUT // À AJOUTER</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const pages = document.querySelectorAll(".page");
+    const navLinks = document.querySelectorAll(".nav-link");
+    const goButtons = document.querySelectorAll("[data-go]");
+    const sidebar = document.getElementById("sidebar");
+    const menuToggle = document.getElementById("menuToggle");
+
+    function showPage(pageId, updateHash = true){
+      const target = document.getElementById(pageId) || document.getElementById("accueil");
+
+      pages.forEach(page => page.classList.remove("active"));
+      target.classList.add("active");
+
+      navLinks.forEach(link => {
+        link.classList.toggle("active", link.dataset.page === target.id);
+      });
+
+      if(updateHash){
+        history.replaceState(null, "", "#" + target.id);
+      }
+
+      window.scrollTo({top:0, behavior:"smooth"});
+
+      if(window.innerWidth <= 780){
+        sidebar.classList.remove("open");
+      }
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => showPage(link.dataset.page));
+    });
+
+    goButtons.forEach(button => {
+      button.addEventListener("click", () => showPage(button.dataset.go));
+    });
+
+    menuToggle.addEventListener("click", () => {
+      sidebar.classList.toggle("open");
+    });
+
+    document.addEventListener("click", (e) => {
+      if(window.innerWidth <= 780 &&
+         sidebar.classList.contains("open") &&
+         !sidebar.contains(e.target) &&
+         !menuToggle.contains(e.target)){
+        sidebar.classList.remove("open");
+      }
+    });
+
+    function loadFromHash(){
+      const hash = window.location.hash.replace("#","");
+      showPage(hash || "accueil", false);
+    }
+
+    window.addEventListener("hashchange", loadFromHash);
+    loadFromHash();
+
+    /* Horloge */
+    function updateClock(){
+      const now = new Date();
+
+      const date = now.toLocaleDateString("fr-FR", {
+        day:"2-digit",
+        month:"2-digit",
+        year:"numeric"
+      });
+
+      const time = now.toLocaleTimeString("fr-FR", {
+        hour:"2-digit",
+        minute:"2-digit",
+        second:"2-digit"
+      });
+
+      document.getElementById("clock").textContent = date + " • " + time;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+
+    /* Recherche dans l'effectif */
+    const search = document.getElementById("rosterSearch");
+    const rosterRows = document.querySelectorAll("#rosterTable tbody tr");
+
+    search.addEventListener("input", () => {
+      const term = search.value.toLowerCase().trim();
+
+      rosterRows.forEach(row => {
+        const content = row.textContent.toLowerCase();
+        row.style.display = content.includes(term) ? "" : "none";
+      });
+    });
+  </script>
+</body>
+</html>
