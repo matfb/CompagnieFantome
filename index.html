@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#090a0d">
-  <title>Compagnie Fantôme // 212th Bataillon d'Attaque</title>
+  <title>Compagnie Fantôme // 212th Attack Battalion</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,42 +61,7 @@
       mask-image:linear-gradient(to bottom,rgba(0,0,0,.7),transparent 90%);
       z-index:-1;
     }
-.brand-mark img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-  clip-path:inherit;
-}
 
-.terminal-logo{
-  overflow:hidden;
-}
-
-.terminal-logo img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
-
-.home-logo{
-  width:150px;
-  height:150px;
-  margin:22px 0 18px;
-  border-radius:50%;
-  overflow:hidden;
-  border:3px solid rgba(255,138,0,.55);
-  box-shadow:0 0 30px rgba(255,138,0,.18);
-  background:#111;
-}
-
-.home-logo img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
     a{color:inherit}
     button,input{font:inherit}
 
@@ -801,6 +766,114 @@
     }
     .footer strong{color:var(--orange)}
 
+
+    /* ====== LOGOS OFFICIELS ====== */
+    .brand-mark img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
+      padding:5px;
+    }
+
+    .hero-emblem{
+      width:min(360px,78vw);
+      aspect-ratio:1;
+      display:grid;
+      place-items:center;
+      margin:0 auto 24px;
+      position:relative;
+      border:1px solid rgba(255,138,0,.38);
+      background:
+        radial-gradient(circle,rgba(255,138,0,.11),transparent 62%),
+        rgba(10,12,15,.88);
+      box-shadow:
+        inset 0 0 55px rgba(255,138,0,.06),
+        0 20px 70px rgba(0,0,0,.36);
+      overflow:hidden;
+    }
+
+    .hero-emblem::before,
+    .hero-emblem::after{
+      content:"";
+      position:absolute;
+      pointer-events:none;
+    }
+
+    .hero-emblem::before{
+      inset:10px;
+      border:1px solid rgba(255,138,0,.14);
+    }
+
+    .hero-emblem::after{
+      left:10%;
+      right:10%;
+      bottom:12px;
+      height:1px;
+      background:linear-gradient(90deg,transparent,var(--orange),transparent);
+      opacity:.65;
+    }
+
+    .hero-emblem img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
+      position:relative;
+      z-index:1;
+    }
+
+    .terminal-logo{
+      overflow:hidden;
+      padding:8px;
+    }
+
+    .terminal-logo img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
+    }
+
+    .unit-logo-row{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin-top:22px;
+      padding:14px 16px;
+      border:1px solid var(--line);
+      background:#0f1216;
+      max-width:560px;
+    }
+
+    .unit-logo-row img{
+      width:58px;
+      height:58px;
+      object-fit:contain;
+      flex:0 0 auto;
+    }
+
+    .unit-logo-row small{
+      display:block;
+      color:#737c87;
+      text-transform:uppercase;
+      letter-spacing:1.2px;
+    }
+
+    .unit-logo-row strong{
+      display:block;
+      margin-top:4px;
+      font-family:"Orbitron",sans-serif;
+      font-size:12px;
+      color:#eef1f4;
+      text-transform:uppercase;
+    }
+
+    .vacant{
+      color:#707984;
+      font-style:italic;
+    }
+
     /* ====== RESPONSIVE ====== */
     @media (max-width:1120px){
       :root{--nav-width:225px}
@@ -854,11 +927,9 @@
   <!-- ===================== SIDEBAR ===================== -->
   <aside class="sidebar" id="sidebar">
     <div class="brand">
-      <div class="brand-mark">
-  <img src="assets/img/logo-212th.png" alt="Logo 212th">
-</div>
+      <div class="brand-mark"><img src="https://2r2d2og.github.io/site.212th/assets/img/Logo_212th.png" alt="Logo du 212th Attack Battalion"></div>
       <div class="brand-title">
-        <small>212th Bataillon d'Attaque</small>
+        <small>212th Attack Battalion</small>
         <strong>Compagnie Fantôme</strong>
         <span>Ghost Company</span>
       </div>
@@ -907,18 +978,26 @@
         <div class="home-inner">
           <div class="hero-grid">
             <div class="hero">
-<div class="hero-code">ARCHIVES // 212-CF-001</div>
+              <div class="hero-code">ARCHIVES // 212-CF-001</div>
 
-<div class="home-logo">
-  <img src="assets/img/logo-cf.jpg" alt="Logo Compagnie Fantôme">
-</div>
+              <div class="hero-emblem">
+                <img src="https://i.pinimg.com/1200x/e5/7d/25/e57d25a6e26792ea66c4b5c11071beba.jpg" alt="Logo de la Compagnie Fantôme">
+              </div>
 
-<h1>Compagnie<br><span>Fantôme</span></h1>
+              <h1>Compagnie<br><span>Fantôme</span></h1>
 
               <p class="hero-sub">
                 Plateforme documentaire de la Compagnie Fantôme du 212th Bataillon d'Attaque.
                 Accès aux effectifs, doctrines, formations, spécialités et procédures opérationnelles.
               </p>
+
+              <div class="unit-logo-row">
+                <img src="https://2r2d2og.github.io/site.212th/assets/img/Logo_212th.png" alt="Logo du 212th">
+                <div>
+                  <small>Affiliation</small>
+                  <strong>212th Attack Battalion // Ghost Company</strong>
+                </div>
+              </div>
 
               <div class="hero-actions">
                 <button class="btn primary" data-go="compagnie">Accéder aux archives</button>
@@ -927,36 +1006,20 @@
 
               <div class="quick-stats">
                 <div class="stat">
-  <small>Unité</small>
-  <strong>212th</strong>
-</div>
-<div class="stat">
-  <small>Compagnie</small>
-  <strong>Fantôme</strong>
-</div>
-<div class="stat">
-  <small>Effectif</small>
-  <strong>5 / 10</strong>
-</div>
-<div class="stat">
-  <small>ARC Spé</small>
-  <strong>9329 Harox</strong>
-</div>
-                <div class="stat">
                   <small>Unité</small>
                   <strong>212th</strong>
                 </div>
                 <div class="stat">
-                  <small>Compagnie</small>
-                  <strong>Fantôme</strong>
+                  <small>Effectif CF</small>
+                  <strong>5 / 10</strong>
                 </div>
                 <div class="stat">
-                  <small>Statut</small>
-                  <strong>Opérationnel</strong>
+                  <small>Commandement</small>
+                  <strong>2224 Cody</strong>
                 </div>
                 <div class="stat">
-                  <small>Archive</small>
-                  <strong>CF-01</strong>
+                  <small>ARC Spé</small>
+                  <strong>9329 Harox</strong>
                 </div>
               </div>
             </div>
@@ -967,9 +1030,7 @@
                 <span>● ONLINE</span>
               </div>
 
-              <div class="terminal-logo">
-  <img src="assets/img/logo-cf.jpg" alt="Logo Compagnie Fantôme">
-</div>
+              <div class="terminal-logo"><img src="https://i.pinimg.com/1200x/e5/7d/25/e57d25a6e26792ea66c4b5c11071beba.jpg" alt="Emblème de la Compagnie Fantôme"></div>
 
               <div class="terminal-rows">
                 <div class="terminal-row">
@@ -1021,7 +1082,7 @@
           </div>
           <div class="info-item">
             <small>Type d'unité</small>
-            <strong>Compagnie d'assaut</strong>
+            <strong>Compagnie Fantôme // unité spécialisée</strong>
           </div>
           <div class="info-item">
             <small>Doctrine</small>
@@ -1095,9 +1156,9 @@
         <div class="org">
           <div class="org-row">
             <div class="org-node primary">
-              <span class="rank">Commandement</span>
-              <h3>Commandant de compagnie</h3>
-              <p>Direction générale, doctrine et supervision des opérations.</p>
+              <span class="rank">CF-L // Commandement</span>
+              <h3>2224 Cody</h3>
+              <p>Leader de la Compagnie Fantôme, direction générale et supervision des opérations.</p>
             </div>
           </div>
 
@@ -1105,9 +1166,9 @@
 
           <div class="org-row">
             <div class="org-node">
-              <span class="rank">Corps officier</span>
-              <h3>Officiers</h3>
-              <p>Préparation des opérations, encadrement et formations.</p>
+              <span class="rank">CF-CL // Second</span>
+              <h3>5509 Waxer</h3>
+              <p>Adjoint au commandement, encadrement et relais direct du CF-L.</p>
             </div>
             <div class="org-node">
               <span class="rank">Corps sous-officier</span>
@@ -1141,7 +1202,7 @@
           <div>
             <span class="page-kicker">Dossier 04 // Personnel</span>
             <h1>Effectif</h1>
-            <p>Registre des membres de la Compagnie Fantôme. Modifie simplement les lignes du tableau dans le code.</p>
+            <p>Registre actuel de la Compagnie Fantôme : 5 postes CF occupés sur 10, avec un ARC spécialisé rattaché à l'unité.</p>
           </div>
           <div class="file-code">FILE // CF-ROSTER</div>
         </div>
@@ -1163,116 +1224,84 @@
               </tr>
             </thead>
             <tbody>
-              <!-- ===== MODIFIE L'EFFECTIF ICI ===== -->
               <tr>
-                <td>CT-XXXX</td>
-                <td>Nom du clone</td>
-                <td><span class="tag">Commandant</span></td>
+                <td><strong>CF-L</strong></td>
+                <td><strong>2224 Cody</strong></td>
+                <td><span class="tag">Leader</span></td>
                 <td>Commandement</td>
                 <td><span class="tag green">Actif</span></td>
               </tr>
               <tr>
-                <td>CT-XXXX</td>
-                <td>Nom du clone</td>
-                <td>Officier</td>
-                <td>Assaut</td>
+                <td><strong>CF-CL</strong></td>
+                <td>5509 Waxer</td>
+                <td><span class="tag">Co-Leader</span></td>
+                <td>Commandement</td>
                 <td><span class="tag green">Actif</span></td>
               </tr>
               <tr>
-                <td>CT-XXXX</td>
-                <td>Nom du clone</td>
-                <td>Sous-officier</td>
-                <td>Médecin</td>
-                <td><span class="tag green">Actif</span></td>
+                <td>CF-2</td>
+                <td class="vacant">Poste vacant</td>
+                <td>—</td>
+                <td>—</td>
+                <td><span class="tag">Libre</span></td>
               </tr>
               <tr>
-                <td>CT-XXXX</td>
-                <td>Nom du clone</td>
-                <td>Soldat</td>
+                <td>CF-3</td>
+                <td class="vacant">Poste vacant</td>
+                <td>—</td>
+                <td>—</td>
+                <td><span class="tag">Libre</span></td>
+              </tr>
+              <tr>
+                <td>CF-4</td>
+                <td class="vacant">Poste vacant</td>
+                <td>—</td>
+                <td>—</td>
+                <td><span class="tag">Libre</span></td>
+              </tr>
+              <tr>
+                <td>CF-5</td>
+                <td>9104 Boil</td>
+                <td>Membre CF</td>
                 <td>Standard</td>
                 <td><span class="tag green">Actif</span></td>
               </tr>
-              <!-- ================================== -->
+              <tr>
+                <td>CF-6</td>
+                <td>9337 Snow</td>
+                <td>Membre CF</td>
+                <td>Standard</td>
+                <td><span class="tag green">Actif</span></td>
+              </tr>
+              <tr>
+                <td>CF-7</td>
+                <td class="vacant">Poste vacant</td>
+                <td>—</td>
+                <td>—</td>
+                <td><span class="tag">Libre</span></td>
+              </tr>
+              <tr>
+                <td>CF-8</td>
+                <td class="vacant">Poste vacant</td>
+                <td>—</td>
+                <td>—</td>
+                <td><span class="tag">Libre</span></td>
+              </tr>
+              <tr>
+                <td>CF-9</td>
+                <td>2204 Trapper</td>
+                <td>Membre CF</td>
+                <td>Standard</td>
+                <td><span class="tag green">Actif</span></td>
+              </tr>
+              <tr>
+                <td><strong>ARC Spé</strong></td>
+                <td><strong>9329 Harox</strong></td>
+                <td><span class="tag">ARC</span></td>
+                <td>ARC Spécialisé</td>
+                <td><span class="tag green">Actif</span></td>
+              </tr>
             </tbody>
-            <tbody>
-  <tr>
-    <td>CF-L</td>
-    <td>2224 Cody</td>
-    <td><span class="tag">Leader</span></td>
-    <td>Commandement</td>
-    <td><span class="tag green">Actif</span></td>
-  </tr>
-  <tr>
-    <td>CF-CL</td>
-    <td>5509 Waxer</td>
-    <td>Clone</td>
-    <td>Standard</td>
-    <td><span class="tag green">Actif</span></td>
-  </tr>
-  <tr>
-    <td>CF-2</td>
-    <td>Vacant</td>
-    <td>Clone</td>
-    <td>—</td>
-    <td><span class="tag">Libre</span></td>
-  </tr>
-  <tr>
-    <td>CF-3</td>
-    <td>Vacant</td>
-    <td>Clone</td>
-    <td>—</td>
-    <td><span class="tag">Libre</span></td>
-  </tr>
-  <tr>
-    <td>CF-4</td>
-    <td>Vacant</td>
-    <td>Clone</td>
-    <td>—</td>
-    <td><span class="tag">Libre</span></td>
-  </tr>
-  <tr>
-    <td>CF-5</td>
-    <td>9104 Boil</td>
-    <td>Clone</td>
-    <td>Standard</td>
-    <td><span class="tag green">Actif</span></td>
-  </tr>
-  <tr>
-    <td>CF-6</td>
-    <td>9337 Snow</td>
-    <td>Clone</td>
-    <td>Standard</td>
-    <td><span class="tag green">Actif</span></td>
-  </tr>
-  <tr>
-    <td>CF-7</td>
-    <td>Vacant</td>
-    <td>Clone</td>
-    <td>—</td>
-    <td><span class="tag">Libre</span></td>
-  </tr>
-  <tr>
-    <td>CF-8</td>
-    <td>Vacant</td>
-    <td>Clone</td>
-    <td>—</td>
-    <td><span class="tag">Libre</span></td>
-  </tr>
-  <tr>
-    <td>CF-9</td>
-    <td>2204 Trapper</td>
-    <td>Clone</td>
-    <td>Standard</td>
-    <td><span class="tag green">Actif</span></td>
-  </tr>
-  <tr>
-    <td>ARC Spé</td>
-    <td>9329 Harox</td>
-    <td>ARC</td>
-    <td>Spécial</td>
-    <td><span class="tag green">Actif</span></td>
-  </tr>
-</tbody>
           </table>
         </div>
       </div>
