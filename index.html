@@ -805,6 +805,425 @@
       font-style:italic;
     }
 
+
+    /* ====== DOSSIER COMPAGNIE FANTÔME ====== */
+    .cf-profile{
+      display:grid;
+      gap:34px;
+    }
+
+    .cf-intro{
+      position:relative;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-left:3px solid var(--orange);
+      background:
+        linear-gradient(100deg,rgba(255,138,0,.08),transparent 48%),
+        #0f1216;
+      padding:28px;
+    }
+
+    .cf-intro::after{
+      content:"CF // GHOST COMPANY";
+      position:absolute;
+      top:14px;
+      right:16px;
+      color:#525b66;
+      font-family:"Orbitron",sans-serif;
+      font-size:7px;
+      letter-spacing:1.5px;
+    }
+
+    .cf-intro p{
+      margin:0;
+      max-width:1050px;
+      color:#c2c8cf;
+      font-size:18px;
+      line-height:1.72;
+    }
+
+    .cf-intro strong{
+      color:#fff;
+    }
+
+    .cf-command{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:1px;
+      background:var(--line);
+      border:1px solid var(--line);
+    }
+
+    .cf-command-item{
+      background:#0e1115;
+      padding:18px;
+    }
+
+    .cf-command-item small{
+      display:block;
+      color:#707985;
+      font-family:"Orbitron",sans-serif;
+      font-size:8px;
+      letter-spacing:1.2px;
+      text-transform:uppercase;
+    }
+
+    .cf-command-item strong{
+      display:block;
+      margin-top:7px;
+      color:#eef1f4;
+      font-size:16px;
+    }
+
+    .cf-block{
+      display:grid;
+      gap:16px;
+    }
+
+    .cf-heading{
+      display:flex;
+      align-items:center;
+      gap:13px;
+      padding-bottom:12px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .cf-heading-code{
+      min-width:60px;
+      padding:8px 9px;
+      text-align:center;
+      border:1px solid rgba(255,138,0,.25);
+      background:rgba(255,138,0,.045);
+      color:var(--orange);
+      font-family:"Orbitron",sans-serif;
+      font-size:8px;
+      letter-spacing:1px;
+    }
+
+    .cf-heading small{
+      display:block;
+      color:#66707b;
+      font-family:"Orbitron",sans-serif;
+      font-size:7px;
+      letter-spacing:1.4px;
+      text-transform:uppercase;
+      margin-bottom:4px;
+    }
+
+    .cf-heading h2{
+      margin:0;
+      font-family:"Orbitron",sans-serif;
+      font-size:21px;
+      text-transform:uppercase;
+      letter-spacing:.4px;
+    }
+
+    .cf-copy{
+      color:#aeb6bf;
+      font-size:16px;
+      line-height:1.7;
+    }
+
+    .cf-copy p{
+      margin:0 0 13px;
+    }
+
+    .cf-copy p:last-child{
+      margin-bottom:0;
+    }
+
+    .cf-members{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:12px;
+    }
+
+    .cf-member{
+      position:relative;
+      overflow:hidden;
+      min-height:116px;
+      padding:18px;
+      border:1px solid var(--line);
+      background:
+        linear-gradient(145deg,rgba(255,138,0,.045),transparent 48%),
+        #101318;
+      transition:.2s ease;
+    }
+
+    .cf-member:hover{
+      border-color:rgba(255,138,0,.45);
+      transform:translateY(-2px);
+    }
+
+    .cf-member::after{
+      content:"";
+      position:absolute;
+      width:42px;
+      height:2px;
+      right:0;
+      top:0;
+      background:var(--orange);
+      opacity:.7;
+    }
+
+    .cf-member .matricule{
+      color:var(--orange);
+      font-family:"Orbitron",sans-serif;
+      font-size:10px;
+      letter-spacing:1px;
+    }
+
+    .cf-member h3{
+      margin:13px 0 5px;
+      font-family:"Orbitron",sans-serif;
+      font-size:16px;
+      text-transform:uppercase;
+    }
+
+    .cf-member p{
+      margin:0;
+      color:#838c97;
+      font-size:14px;
+    }
+
+    .cf-callout{
+      padding:18px 20px;
+      border:1px solid rgba(255,138,0,.18);
+      background:rgba(255,138,0,.03);
+      color:#b4bbc3;
+      font-size:16px;
+      line-height:1.6;
+    }
+
+    .cf-callout strong{
+      color:var(--orange-2);
+    }
+
+    .cf-missions{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:12px;
+    }
+
+    .cf-mission{
+      padding:17px;
+      border:1px solid var(--line);
+      background:#101318;
+    }
+
+    .cf-mission span{
+      display:block;
+      color:var(--orange);
+      font-family:"Orbitron",sans-serif;
+      font-size:8px;
+      letter-spacing:1.2px;
+      text-transform:uppercase;
+      margin-bottom:7px;
+    }
+
+    .cf-mission strong{
+      display:block;
+      color:#e6eaee;
+      font-size:15px;
+      line-height:1.4;
+    }
+
+    .cf-ryloth{
+      display:grid;
+      grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr);
+      gap:15px;
+    }
+
+    .cf-ryloth-story{
+      border:1px solid var(--line);
+      border-top:2px solid var(--orange-dim);
+      background:#101318;
+      padding:22px;
+    }
+
+    .cf-ryloth-story p{
+      margin:0 0 14px;
+      color:#b4bbc3;
+      line-height:1.68;
+      font-size:16px;
+    }
+
+    .cf-ryloth-story p:last-child{
+      margin-bottom:0;
+    }
+
+    .cf-objectives{
+      border:1px solid var(--line);
+      background:#0f1216;
+      padding:20px;
+    }
+
+    .cf-objectives h3{
+      margin:0 0 11px;
+      color:var(--orange-2);
+      font-family:"Orbitron",sans-serif;
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:1.2px;
+    }
+
+    .cf-objective{
+      position:relative;
+      padding:10px 0 10px 20px;
+      border-bottom:1px solid rgba(255,255,255,.055);
+      color:#c1c7ce;
+      line-height:1.4;
+    }
+
+    .cf-objective:last-child{
+      border-bottom:0;
+    }
+
+    .cf-objective::before{
+      content:"";
+      position:absolute;
+      left:2px;
+      top:17px;
+      width:6px;
+      height:6px;
+      background:var(--orange);
+      box-shadow:0 0 7px rgba(255,138,0,.25);
+    }
+
+    .cf-values{
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      gap:10px;
+    }
+
+    .cf-value{
+      padding:17px 10px;
+      text-align:center;
+      border:1px solid var(--line);
+      background:#0f1216;
+      color:#e2e6ea;
+      font-family:"Orbitron",sans-serif;
+      font-size:9px;
+      letter-spacing:.9px;
+      text-transform:uppercase;
+    }
+
+    .cf-legacy{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:12px;
+    }
+
+    .cf-legacy-item{
+      min-height:128px;
+      padding:18px;
+      border:1px solid var(--line);
+      background:#101318;
+    }
+
+    .cf-legacy-item span{
+      display:block;
+      color:var(--orange);
+      font-family:"Orbitron",sans-serif;
+      font-size:8px;
+      letter-spacing:1.2px;
+      text-transform:uppercase;
+      margin-bottom:10px;
+    }
+
+    .cf-legacy-item p{
+      margin:0;
+      color:#aeb5bd;
+      line-height:1.55;
+    }
+
+    .cf-motto{
+      position:relative;
+      overflow:hidden;
+      padding:36px 24px;
+      text-align:center;
+      border:1px solid rgba(255,138,0,.48);
+      background:
+        radial-gradient(circle at 50% 0%,rgba(255,138,0,.13),transparent 48%),
+        linear-gradient(180deg,rgba(255,138,0,.04),transparent),
+        #0c0f13;
+      box-shadow:0 16px 45px rgba(0,0,0,.22);
+    }
+
+    .cf-motto::before,
+    .cf-motto::after{
+      content:"";
+      position:absolute;
+      left:10%;
+      right:10%;
+      height:1px;
+      background:linear-gradient(90deg,transparent,var(--orange),transparent);
+      opacity:.45;
+    }
+
+    .cf-motto::before{top:14px}
+    .cf-motto::after{bottom:14px}
+
+    .cf-motto small{
+      display:block;
+      color:#6f7882;
+      font-family:"Orbitron",sans-serif;
+      font-size:8px;
+      letter-spacing:1.7px;
+      text-transform:uppercase;
+      margin-bottom:12px;
+    }
+
+    .cf-motto blockquote{
+      margin:0;
+      color:var(--orange-2);
+      font-family:"Orbitron",sans-serif;
+      font-size:clamp(19px,2.7vw,31px);
+      font-weight:700;
+      line-height:1.4;
+      text-transform:uppercase;
+      letter-spacing:.45px;
+    }
+
+    .cf-motto p{
+      max-width:850px;
+      margin:18px auto 0;
+      color:#adb5be;
+      font-size:16px;
+      line-height:1.65;
+    }
+
+    .cf-signature{
+      margin-top:22px;
+      color:#747d88;
+      font-family:"Orbitron",sans-serif;
+      font-size:8px;
+      letter-spacing:1px;
+      text-transform:uppercase;
+    }
+
+    @media (max-width:1050px){
+      .cf-members{grid-template-columns:repeat(2,1fr)}
+      .cf-missions{grid-template-columns:repeat(2,1fr)}
+      .cf-legacy{grid-template-columns:repeat(2,1fr)}
+      .cf-values{grid-template-columns:repeat(3,1fr)}
+    }
+
+    @media (max-width:720px){
+      .cf-command{grid-template-columns:1fr}
+      .cf-ryloth{grid-template-columns:1fr}
+      .cf-missions{grid-template-columns:1fr}
+      .cf-values{grid-template-columns:repeat(2,1fr)}
+    }
+
+    @media (max-width:480px){
+      .cf-members{grid-template-columns:1fr}
+      .cf-legacy{grid-template-columns:1fr}
+      .cf-values{grid-template-columns:1fr}
+      .cf-intro{padding:20px}
+      .cf-intro p{font-size:16px}
+    }
+
     /* ====== RESPONSIVE ====== */
     @media (max-width:1120px){
       :root{--nav-width:225px}
@@ -990,80 +1409,308 @@
     <!-- COMPAGNIE -->
     <section class="page" id="compagnie">
       <div class="page-wrap">
+
         <div class="page-header">
           <div>
-            <span class="page-kicker">Dossier 02 // Unité</span>
+            <span class="page-kicker">Dossier 02 // Unité d'élite</span>
             <h1>Compagnie Fantôme</h1>
-            <p>Présentation générale de l'unité, de son rôle et de sa doctrine opérationnelle.</p>
+            <p>Présentation officielle de la Ghost Company, de ses missions, de son histoire et des valeurs qui définissent l'unité.</p>
           </div>
           <div class="file-code">FILE // CF-UNIT-212</div>
         </div>
 
-        <div class="info-strip">
-          <div class="info-item">
-            <small>Formation</small>
-            <strong>212th Bataillon d'Attaque</strong>
-          </div>
-          <div class="info-item">
-            <small>Type d'unité</small>
-            <strong>Compagnie Fantôme // unité spécialisée</strong>
-          </div>
-          <div class="info-item">
-            <small>Doctrine</small>
-            <strong>Mobilité // Coordination // Discipline</strong>
-          </div>
-        </div>
+        <div class="cf-profile">
 
-        <div class="grid cols-2">
-          <article class="card accent">
-            <span class="card-code">CF // 01</span>
-            <h3>Présentation</h3>
+          <!-- PRÉSENTATION GÉNÉRALE -->
+          <section class="cf-block">
+            <div class="cf-heading">
+              <div class="cf-heading-code">CF-01</div>
+              <div>
+                <small>Dossier d'identité</small>
+                <h2>Présentation générale</h2>
+              </div>
+            </div>
+
+            <div class="cf-intro">
+              <p>
+                La <strong>Compagnie Fantôme</strong> (<em>Ghost Company</em>) est l'une des unités les plus prestigieuses
+                et respectées du <strong>212ᵉ Bataillon d'Attaque</strong>, placé sous le commandement du
+                <strong>Commandant Maréchal CC-2224 Cody</strong> et sous la supervision directe du
+                <strong>Général Jedi Obi-Wan Kenobi</strong>.
+              </p>
+            </div>
+
+            <div class="cf-command">
+              <div class="cf-command-item">
+                <small>Affiliation</small>
+                <strong>212ᵉ Bataillon d'Attaque</strong>
+              </div>
+              <div class="cf-command-item">
+                <small>Commandement</small>
+                <strong>Commandant Maréchal CC-2224 Cody</strong>
+              </div>
+              <div class="cf-command-item">
+                <small>Supervision</small>
+                <strong>Général Jedi Obi-Wan Kenobi</strong>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="cf-copy">
+                <p>
+                  Composée de clones vétérans sélectionnés parmi les meilleurs soldats du bataillon,
+                  la Compagnie Fantôme est spécialisée dans les opérations les plus risquées et les plus
+                  stratégiques de la République.
+                </p>
+                <p>
+                  Son efficacité au combat, sa discipline exemplaire et sa cohésion sans faille lui ont permis
+                  de se distinguer sur de nombreux champs de bataille durant la Guerre des Clones.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- MEMBRES EMBLÉMATIQUES -->
+          <section class="cf-block">
+            <div class="cf-heading">
+              <div class="cf-heading-code">CF-02</div>
+              <div>
+                <small>Personnel historique</small>
+                <h2>Membres emblématiques</h2>
+              </div>
+            </div>
+
+            <div class="cf-copy">
+              <p>Parmi les membres les plus connus de cette unité figurent :</p>
+            </div>
+
+            <div class="cf-members">
+              <article class="cf-member">
+                <span class="matricule">CT-782</span>
+                <h3>Wooley</h3>
+                <p>Clone vétéran de la Compagnie Fantôme</p>
+              </article>
+
+              <article class="cf-member">
+                <span class="matricule">CT-5509</span>
+                <h3>Waxer</h3>
+                <p>Clone emblématique du 212ᵉ Bataillon</p>
+              </article>
+
+              <article class="cf-member">
+                <span class="matricule">CT-9104</span>
+                <h3>Boil</h3>
+                <p>Clone emblématique du 212ᵉ Bataillon</p>
+              </article>
+
+              <article class="cf-member">
+                <span class="matricule">CT-2204</span>
+                <h3>Trapper</h3>
+                <p>Membre de la Compagnie Fantôme</p>
+              </article>
+            </div>
+
+            <div class="cf-callout">
+              Ces soldats sont devenus de véritables symboles du
+              <strong>professionnalisme, de la bravoure et de la fraternité</strong>
+              qui caractérisent le 212ᵉ Bataillon d'Attaque.
+            </div>
+          </section>
+
+          <!-- UNITÉ D'ÉLITE -->
+          <section class="cf-block">
+            <div class="cf-heading">
+              <div class="cf-heading-code">CF-03</div>
+              <div>
+                <small>Doctrine opérationnelle</small>
+                <h2>Une unité d'élite</h2>
+              </div>
+            </div>
+
+            <div class="cf-copy">
+              <p>La Compagnie Fantôme est régulièrement déployée lorsque la mission exige :</p>
+            </div>
+
+            <div class="cf-missions">
+              <div class="cf-mission">
+                <span>Capacité 01</span>
+                <strong>Une précision tactique maximale</strong>
+              </div>
+              <div class="cf-mission">
+                <span>Capacité 02</span>
+                <strong>Des assauts en territoire hostile</strong>
+              </div>
+              <div class="cf-mission">
+                <span>Capacité 03</span>
+                <strong>Des débarquements sous le feu ennemi</strong>
+              </div>
+              <div class="cf-mission">
+                <span>Capacité 04</span>
+                <strong>Des missions de reconnaissance avancée</strong>
+              </div>
+              <div class="cf-mission">
+                <span>Capacité 05</span>
+                <strong>La sécurisation d'objectifs stratégiques</strong>
+              </div>
+              <div class="cf-mission">
+                <span>Capacité 06</span>
+                <strong>Une réaction rapide face à une menace importante</strong>
+              </div>
+            </div>
+
+            <div class="cf-callout">
+              Grâce à leur expérience du terrain et à leur capacité d'adaptation, les membres de la Compagnie Fantôme
+              sont souvent envoyés là où les combats sont les plus intenses. Leur réputation s'est construite au fil
+              des campagnes, faisant d'eux l'une des unités les plus fiables du <strong>7ᵉ Corps Céleste</strong>.
+            </div>
+          </section>
+
+          <!-- CAMPAGNE DE RYLOTH -->
+          <section class="cf-block">
+            <div class="cf-heading">
+              <div class="cf-heading-code">CF-04</div>
+              <div>
+                <small>Archive de campagne</small>
+                <h2>La campagne de Ryloth</h2>
+              </div>
+            </div>
+
+            <div class="cf-ryloth">
+              <article class="cf-ryloth-story">
+                <p>
+                  L'une des opérations les plus célèbres de la Compagnie Fantôme reste la
+                  <strong>campagne de Ryloth</strong>.
+                </p>
+                <p>
+                  Lors de l'invasion séparatiste de la planète, la République lança une vaste opération visant
+                  à libérer la population Twi'lek et à repousser les forces droïdes.
+                </p>
+                <p>
+                  Sous les ordres du Général Obi-Wan Kenobi et du Commandant Cody, la Compagnie Fantôme fut chargée
+                  de prendre d'assaut la ville de <strong>Nabat</strong> afin de neutraliser les canons à protons
+                  séparatistes empêchant les débarquements républicains.
+                </p>
+                <p>
+                  Malgré une forte résistance ennemie, les clones accomplirent leurs objectifs. Cette victoire joua
+                  un rôle déterminant dans la libération de Ryloth et contribua à forger la légende de la Compagnie Fantôme.
+                </p>
+              </article>
+
+              <aside class="cf-objectives">
+                <h3>Résultats opérationnels</h3>
+                <div class="cf-objective">Percer les lignes droïdes</div>
+                <div class="cf-objective">Détruire les défenses stratégiques</div>
+                <div class="cf-objective">Protéger les civils pris au piège</div>
+                <div class="cf-objective">Sécuriser les zones d'atterrissage</div>
+                <div class="cf-objective">Permettre le déploiement des forces de la République</div>
+              </aside>
+            </div>
+          </section>
+
+          <!-- FRATERNITÉ ET DÉVOUEMENT -->
+          <section class="cf-block">
+            <div class="cf-heading">
+              <div class="cf-heading-code">CF-05</div>
+              <div>
+                <small>Valeurs de l'unité</small>
+                <h2>Fraternité et dévouement</h2>
+              </div>
+            </div>
+
+            <div class="cf-copy">
+              <p>
+                Au-delà de leurs exploits militaires, les membres de la Compagnie Fantôme sont connus pour leur
+                profond sens du devoir et leur loyauté envers leurs frères clones.
+              </p>
+              <p>Ils incarnent les valeurs fondamentales de la Grande Armée de la République :</p>
+            </div>
+
+            <div class="cf-values">
+              <div class="cf-value">Discipline</div>
+              <div class="cf-value">Fraternité</div>
+              <div class="cf-value">Courage</div>
+              <div class="cf-value">Détermination</div>
+              <div class="cf-value">Honneur</div>
+            </div>
+
+            <div class="cf-callout">
+              L'histoire de <strong>Waxer</strong>, <strong>Boil</strong> et de la jeune Twi'lek <strong>Numa</strong>
+              demeure encore aujourd'hui l'un des symboles les plus marquants de l'humanité dont les clones sont capables
+              malgré les horreurs de la guerre. Ces événements ont contribué à renforcer la réputation de la Compagnie
+              Fantôme comme une unité aussi respectée pour son efficacité que pour son sens de l'honneur.
+            </div>
+          </section>
+
+          <!-- HÉRITAGE -->
+          <section class="cf-block">
+            <div class="cf-heading">
+              <div class="cf-heading-code">CF-06</div>
+              <div>
+                <small>Mémoire de l'unité</small>
+                <h2>Héritage</h2>
+              </div>
+            </div>
+
+            <div class="cf-copy">
+              <p>
+                Au fil de la Guerre des Clones, la Compagnie Fantôme s'est imposée comme l'une des formations
+                les plus efficaces du <strong>7ᵉ Corps Céleste</strong>.
+              </p>
+            </div>
+
+            <div class="cf-legacy">
+              <article class="cf-legacy-item">
+                <span>Héritage 01</span>
+                <p>Leur histoire est étudiée dans les académies militaires.</p>
+              </article>
+              <article class="cf-legacy-item">
+                <span>Héritage 02</span>
+                <p>Leur discipline sert d'exemple aux nouvelles recrues.</p>
+              </article>
+              <article class="cf-legacy-item">
+                <span>Héritage 03</span>
+                <p>Leurs exploits continuent d'inspirer les soldats du 212ᵉ Bataillon.</p>
+              </article>
+              <article class="cf-legacy-item">
+                <span>Héritage 04</span>
+                <p>Leur nom est associé aux missions les plus difficiles et aux victoires les plus mémorables de la République.</p>
+              </article>
+            </div>
+
+            <div class="cf-callout">
+              Leur courage, leur sens du sacrifice et leur détermination à accomplir la mission ont fait de cette unité
+              une véritable <strong>légende de la Grande Armée de la République</strong>.
+            </div>
+          </section>
+
+          <!-- DEVISE -->
+          <section class="cf-motto">
+            <small>Devise officielle de la Compagnie Fantôme</small>
+            <blockquote>« Qu’importe la tempête, le Fantôme tient tête ! »</blockquote>
+
             <p>
-              La Compagnie Fantôme constitue une formation du 212th Bataillon d'Attaque.
-              Elle intervient dans des opérations terrestres, des sécurisations de zones,
-              des assauts coordonnés et des engagements en environnement urbain.
+              Cette devise symbolise la résilience et la détermination des soldats de la Compagnie Fantôme.
+              Même lorsque la situation semble désespérée et que les chances sont contre eux, les Fantômes
+              poursuivent leur mission sans jamais faiblir.
             </p>
-          </article>
 
-          <article class="card accent">
-            <span class="card-code">CF // 02</span>
-            <h3>Doctrine</h3>
-            <p>
-              L'unité privilégie la cohésion, la progression coordonnée et le respect de la chaîne de commandement.
-              Chaque soldat doit être capable de s'intégrer à une escouade et d'exécuter rapidement les ordres reçus.
-            </p>
-          </article>
+            <div class="cf-values" style="margin-top:22px;">
+              <div class="cf-value">Courage face à l'adversité</div>
+              <div class="cf-value">Loyauté envers la République</div>
+              <div class="cf-value">Fraternité entre frères clones</div>
+              <div class="cf-value">Détermination à accomplir la mission</div>
+              <div class="cf-value">Persévérance en toutes circonstances</div>
+            </div>
 
-          <article class="card">
-            <div class="iconbox">OPS</div>
-            <span class="card-code">Mission</span>
-            <h3>Opérations</h3>
-            <p>Assaut, défense, sécurisation, patrouille, escorte et intervention en zone contestée.</p>
-          </article>
+            <div class="cf-signature">
+              République Galactique // 212ᵉ Bataillon d'Attaque // Compagnie Fantôme
+            </div>
+          </section>
 
-          <article class="card">
-            <div class="iconbox">CQB</div>
-            <span class="card-code">Capacité</span>
-            <h3>Combat urbain</h3>
-            <p>Progression en bâtiment, sécurisation de pièces, gestion des angles et coordination rapprochée.</p>
-          </article>
-
-          <article class="card">
-            <div class="iconbox">COM</div>
-            <span class="card-code">Commandement</span>
-            <h3>Chaîne hiérarchique</h3>
-            <p>Le maintien d'une chaîne de commandement claire garantit l'efficacité de l'unité sur le terrain.</p>
-          </article>
-
-          <article class="card">
-            <div class="iconbox">REP</div>
-            <span class="card-code">Identité</span>
-            <h3>Valeurs</h3>
-            <p>Discipline, loyauté, esprit de corps, efficacité, responsabilité et respect de l'image du 212th.</p>
-          </article>
         </div>
       </div>
     </section>
+
 
     <!-- HIERARCHIE -->
     <section class="page" id="hierarchie">
