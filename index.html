@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#090a0d">
-  <title>Compagnie Fantôme // 212th Attack Battalion</title>
+  <title>Compagnie Fantôme // 212e Bataillon d'attaque</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -132,25 +132,15 @@
       border-bottom:1px solid var(--line);
     }
     .brand-mark{
-      width:72px;height:72px;
+      width:72px;
+      height:72px;
       flex:0 0 auto;
-      display:grid;place-items:center;
+      display:grid;
+      place-items:center;
       position:relative;
-      color:var(--orange);
-      font-family:"Orbitron",sans-serif;
-      font-weight:900;
-      font-size:21px;
-      letter-spacing:1px;
-      clip-path:polygon(25% 0,75% 0,100% 25%,100% 75%,75% 100%,25% 100%,0 75%,0 25%);
-      background:linear-gradient(145deg,rgba(255,138,0,.15),rgba(255,138,0,.025));
-      border:1px solid rgba(255,138,0,.5);
-      box-shadow:inset 0 0 25px rgba(255,138,0,.09),0 0 28px rgba(255,138,0,.07);
-    }
-    .brand-mark::after{
-      content:"";
-      position:absolute;inset:7px;
-      clip-path:inherit;
-      border:1px solid rgba(255,138,0,.25);
+      background:transparent;
+      border:0;
+      box-shadow:none;
     }
     .brand-title{
       min-width:0;
@@ -407,8 +397,8 @@
       min-height:430px;
       border:1px solid #2b3139;
       background:
-        linear-gradient(180deg,rgba(255,138,0,.045),transparent 35%),
-        rgba(12,14,17,.92);
+        linear-gradient(rgba(7,8,10,.68), rgba(7,8,10,.88)),
+        url("https://i.pinimg.com/1200x/dc/9f/4f/dc9f4ff14c5065034fd58b9499cc7cbf.jpg") center center / cover no-repeat;
       box-shadow:var(--shadow);
       padding:22px;
       overflow:hidden;
@@ -444,22 +434,6 @@
     .terminal-head span{
       color:var(--success);
       font-size:12px;
-    }
-    .terminal-logo{
-      width:160px;height:160px;
-      margin:22px auto 26px;
-      display:grid;
-      place-items:center;
-      clip-path:polygon(25% 0,75% 0,100% 25%,100% 75%,75% 100%,25% 100%,0 75%,0 25%);
-      background:
-        radial-gradient(circle,rgba(255,138,0,.16),transparent 64%),
-        #0d1014;
-      border:1px solid rgba(255,138,0,.55);
-      color:var(--orange);
-      font-family:"Orbitron",sans-serif;
-      font-weight:900;
-      font-size:43px;
-      box-shadow:inset 0 0 45px rgba(255,138,0,.11),0 0 38px rgba(255,138,0,.08);
     }
     .terminal-rows{
       position:relative;
@@ -773,66 +747,7 @@
       height:100%;
       object-fit:contain;
       display:block;
-      padding:5px;
-    }
-
-    .hero-emblem{
-      width:min(360px,78vw);
-      aspect-ratio:1;
-      display:grid;
-      place-items:center;
-      margin:0 auto 24px;
-      position:relative;
-      border:1px solid rgba(255,138,0,.38);
-      background:
-        radial-gradient(circle,rgba(255,138,0,.11),transparent 62%),
-        rgba(10,12,15,.88);
-      box-shadow:
-        inset 0 0 55px rgba(255,138,0,.06),
-        0 20px 70px rgba(0,0,0,.36);
-      overflow:hidden;
-    }
-
-    .hero-emblem::before,
-    .hero-emblem::after{
-      content:"";
-      position:absolute;
-      pointer-events:none;
-    }
-
-    .hero-emblem::before{
-      inset:10px;
-      border:1px solid rgba(255,138,0,.14);
-    }
-
-    .hero-emblem::after{
-      left:10%;
-      right:10%;
-      bottom:12px;
-      height:1px;
-      background:linear-gradient(90deg,transparent,var(--orange),transparent);
-      opacity:.65;
-    }
-
-    .hero-emblem img{
-      width:100%;
-      height:100%;
-      object-fit:contain;
-      display:block;
-      position:relative;
-      z-index:1;
-    }
-
-    .terminal-logo{
-      overflow:hidden;
-      padding:8px;
-    }
-
-    .terminal-logo img{
-      width:100%;
-      height:100%;
-      object-fit:contain;
-      display:block;
+      padding:0;
     }
 
     .unit-logo-row{
@@ -927,11 +842,11 @@
   <!-- ===================== SIDEBAR ===================== -->
   <aside class="sidebar" id="sidebar">
     <div class="brand">
-      <div class="brand-mark"><img src="https://2r2d2og.github.io/site.212th/assets/img/Logo_212th.png" alt="Logo du 212th Attack Battalion"></div>
+      <div class="brand-mark"><img src="https://2r2d2og.github.io/site.212th/assets/img/Logo_212th.png" alt="Logo du 212e Bataillon d'attaque"></div>
       <div class="brand-title">
-        <small>212th Attack Battalion</small>
+        <small>212e Bataillon d'attaque</small>
         <strong>Compagnie Fantôme</strong>
-        <span>Ghost Company</span>
+        <span>Compagnie Fantôme</span>
       </div>
     </div>
 
@@ -980,11 +895,7 @@
             <div class="hero">
               <div class="hero-code">ARCHIVES // 212-CF-001</div>
 
-              <div class="hero-emblem">
-                <img src="https://i.pinimg.com/1200x/e5/7d/25/e57d25a6e26792ea66c4b5c11071beba.jpg" alt="Logo de la Compagnie Fantôme">
-              </div>
-
-              <h1>Compagnie<br><span>Fantôme</span></h1>
+<h1>Compagnie<br><span>Fantôme</span></h1>
 
               <p class="hero-sub">
                 Plateforme documentaire de la Compagnie Fantôme du 212th Bataillon d'Attaque.
@@ -995,7 +906,7 @@
                 <img src="https://2r2d2og.github.io/site.212th/assets/img/Logo_212th.png" alt="Logo du 212th">
                 <div>
                   <small>Affiliation</small>
-                  <strong>212th Attack Battalion // Ghost Company</strong>
+                  <strong>Le 212e Bataillon d'attaque et Compagnie Fantôme</strong>
                 </div>
               </div>
 
@@ -1030,16 +941,14 @@
                 <span>● ONLINE</span>
               </div>
 
-              <div class="terminal-logo"><img src="https://i.pinimg.com/1200x/e5/7d/25/e57d25a6e26792ea66c4b5c11071beba.jpg" alt="Emblème de la Compagnie Fantôme"></div>
-
-              <div class="terminal-rows">
+<div class="terminal-rows">
                 <div class="terminal-row">
                   <span>Désignation</span>
                   <span>Compagnie Fantôme</span>
                 </div>
                 <div class="terminal-row">
                   <span>Affiliation</span>
-                  <span>212th Attack Battalion</span>
+                  <span>212e Bataillon d'attaque</span>
                 </div>
                 <div class="terminal-row">
                   <span>Armée</span>
@@ -1059,7 +968,7 @@
         </div>
       </div>
       <div class="footer">
-        <strong>COMPAGNIE FANTÔME</strong> // 212TH ATTACK BATTALION // ARCHIVES INTERNES
+        <strong>COMPAGNIE FANTÔME</strong> // 212E BATAILLON D'ATTAQUE // ARCHIVES INTERNES
       </div>
     </section>
 
