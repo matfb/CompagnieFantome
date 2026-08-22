@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Compagnie Fantôme | 212th</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --orange: #ff8c00;
+            --orange-clair: #ffb347;
+            --orange-fonce: #b85f00;
+            --fond: #060708;
+            --fond2: #0c0e11;
+            --carte: rgba(18, 20, 24, 0.90);
+            --texte: #e8e8e8;
+            --gris: #919191;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background:
+                radial-gradient(circle at 20% 20%, rgba(255, 140, 0, 0.07), transparent 30%),
+                radial-gradient(circle at 80% 60%, rgba(255, 140, 0, 0.04), transparent 30%),
+                var(--fond);
+
+            color: var(--texte);
+            font-family: "Rajdhani", sans-serif;
+        }
+
+        /* BARRE DE NAVIGATION */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 15px 7%;
+
+            background: rgba(5, 6, 7, 0.94);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid rgba(255, 140, 0, 0.35);
+        }
+
+        .logo {
+            font-family: "Orbitron", sans-serif;
+            font-weight: 900;
+            color: var(--orange);
+            letter-spacing: 2px;
+            font-size: 18px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #cfcfcf;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.25s;
+        }
+
+        nav a:hover {
+            color: var(--orange);
+        }
+
+        /* ACCUEIL */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            padding: 100px 20px;
+
+            position: relative;
+        }
+
+        .badge {
+            width: 110px;
+            height: 110px;
+
+            border: 2px solid var(--orange);
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-family: "Orbitron", sans-serif;
+            font-size: 34px;
+            font-weight: 900;
+
+            color: var(--orange);
+
+            box-shadow:
+                0 0 25px rgba(255, 140, 0, 0.25),
+                inset 0 0 25px rgba(255, 140, 0, 0.08);
+
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-family: "Orbitron", sans-serif;
+            font-size: clamp(42px, 7vw, 85px);
+            text-transform: uppercase;
+
+            letter-spacing: 5px;
+
+            color: white;
+        }
+
+        .hero h1 span {
+            color: var(--orange);
+        }
+
+        .hero h2 {
+            margin-top: 15px;
+
+            color: var(--gris);
+
+            font-size: 21px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin-top: 30px;
+
+            color: #bdbdbd;
+
+            font-size: 19px;
+            line-height: 1.6;
+        }
+
+        .bouton {
+            margin-top: 40px;
+
+            padding: 13px 28px;
+
+            border: 1px solid var(--orange);
+
+            color: var(--orange);
+
+            text-decoration: none;
+
+            font-family: "Orbitron", sans-serif;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+
+            transition: 0.3s;
+        }
+
+        .bouton:hover {
+            color: #080808;
+            background: var(--orange);
+
+            box-shadow: 0 0 25px rgba(255, 140, 0, 0.45);
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 100px 8%;
+        }
+
+        .section-titre {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-titre p {
+            color: var(--orange);
+
+            text-transform: uppercase;
+            letter-spacing: 4px;
+
+            font-weight: 700;
+        }
+
+        .section-titre h2 {
+            font-family: "Orbitron", sans-serif;
+
+            font-size: 36px;
+
+            margin-top: 8px;
+
+            text-transform: uppercase;
+        }
+
+        .ligne {
+            width: 60px;
+            height: 2px;
+
+            background: var(--orange);
+
+            margin: 18px auto;
+        }
+
+        /* CARTES */
+
+        .grille {
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(250px, 1fr));
+
+            gap: 22px;
+        }
+
+        .carte {
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 140, 0, 0.04),
+                    transparent
+                ),
+                var(--carte);
+
+            border: 1px solid #272a2e;
+            border-top: 2px solid var(--orange-fonce);
+
+            padding: 30px;
+
+            transition: 0.3s;
+        }
+
+        .carte:hover {
+            transform: translateY(-5px);
+
+            border-color: rgba(255, 140, 0, 0.65);
+
+            box-shadow:
+                0 10px 35px rgba(0, 0, 0, 0.45);
+        }
+
+        .carte .numero {
+            color: var(--orange);
+
+            font-family: "Orbitron", sans-serif;
+
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+
+        .carte h3 {
+            margin: 12px 0;
+
+            font-family: "Orbitron", sans-serif;
+
+            font-size: 18px;
+        }
+
+        .carte p {
+            color: #adadad;
+
+            font-size: 17px;
+            line-height: 1.55;
+        }
+
+        /* PRESENTATION */
+
+        .presentation {
+            background: #090b0d;
+        }
+
+        .texte-centre {
+            max-width: 850px;
+
+            margin: auto;
+
+            text-align: center;
+
+            color: #bdbdbd;
+
+            font-size: 19px;
+            line-height: 1.8;
+        }
+
+        .texte-centre strong {
+            color: var(--orange-clair);
+        }
+
+        /* HIERARCHIE */
+
+        .grade {
+            text-align: center;
+        }
+
+        .grade .icone {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        /* REGLEMENT */
+
+        .reglement {
+            max-width: 900px;
+
+            margin: auto;
+
+            display: flex;
+            flex-direction: column;
+
+            gap: 15px;
+        }
+
+        .regle {
+            padding: 22px;
+
+            background: #101215;
+
+            border-left: 3px solid var(--orange);
+        }
+
+        .regle h3 {
+            color: var(--orange-clair);
+
+            margin-bottom: 7px;
+
+            font-family: "Orbitron", sans-serif;
+
+            font-size: 15px;
+        }
+
+        .regle p {
+            color: #bbb;
+
+            font-size: 17px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 45px 20px;
+
+            text-align: center;
+
+            border-top: 1px solid #242424;
+
+            color: #6f6f6f;
+
+            background: #050607;
+        }
+
+        footer strong {
+            color: var(--orange);
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 850px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 13px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            .hero h2 {
+                font-size: 14px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <div class="logo">
+        212 // CF
+    </div>
+
+    <ul>
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#presentation">Présentation</a></li>
+        <li><a href="#hierarchie">Hiérarchie</a></li>
+        <li><a href="#specialites">Spécialités</a></li>
+        <li><a href="#formations">Formations</a></li>
+        <li><a href="#reglement">Règlement</a></li>
+    </ul>
+
+</nav>
+
+
+<!-- ACCUEIL -->
+
+<section class="hero" id="accueil">
+
+    <div class="badge">
+        CF
+    </div>
+
+    <h1>
+        Compagnie <span>Fantôme</span>
+    </h1>
+
+    <h2>
+        212th Attack Battalion
+    </h2>
+
+    <p>
+        Bienvenue sur la plateforme officielle de la Compagnie Fantôme.
+        Retrouvez ici les informations relatives à notre organisation,
+        notre hiérarchie, nos formations et nos procédures opérationnelles.
+    </p>
+
+    <a href="#presentation" class="bouton">
+        Accéder aux archives
+    </a>
+
+</section>
+
+
+<!-- PRESENTATION -->
+
+<section class="presentation" id="presentation">
+
+    <div class="section-titre">
+
+        <p>01 // unité</p>
+
+        <h2>Présentation</h2>
+
+        <div class="ligne"></div>
+
+    </div>
+
+    <div class="texte-centre">
+
+        La <strong>Compagnie Fantôme</strong> est une unité du
+        <strong>212th Bataillon d'Attaque</strong> spécialisée dans
+        les opérations nécessitant discipline, coordination et efficacité.
+
+        <br><br>
+
+        Sous les couleurs orange du 212th, ses soldats sont amenés à
+        intervenir lors d'opérations terrestres, d'assauts,
+        de sécurisations de zones et de combats en milieu urbain.
+
+    </div>
+
+</section>
+
+
+<!-- HIERARCHIE -->
+
+<section id="hierarchie">
+
+    <div class="section-titre">
+
+        <p>02 // commandement</p>
+
+        <h2>Hiérarchie</h2>
+
+        <div class="ligne"></div>
+
+    </div>
+
+    <div class="grille">
+
+        <div class="carte grade">
+
+            <div class="icone">◆</div>
+
+            <span class="numero">COMMANDANT</span>
+
+            <h3>Commandement</h3>
+
+            <p>
+                Direction générale de la Compagnie Fantôme
+                et supervision des opérations.
+            </p>
+
+        </div>
+
+
+        <div class="carte grade">
+
+            <div class="icone">▲</div>
+
+            <span class="numero">OFFICIER</span>
+
+            <h3>Corps officier</h3>
+
+            <p>
+                Organisation des troupes,
+                formations et opérations.
+            </p>
+
+        </div>
+
+
+        <div class="carte grade">
+
+            <div class="icone">●</div>
+
+            <span class="numero">SOUS-OFFICIER</span>
+
+            <h3>Encadrement</h3>
+
+            <p>
+                Encadrement direct des soldats
+                et transmission des ordres.
+            </p>
+
+        </div>
+
+
+        <div class="carte grade">
+
+            <div class="icone">■</div>
+
+            <span class="numero">TROUPES</span>
+
+            <h3>Clones</h3>
+
+            <p>
+                Force opérationnelle principale
+                de la Compagnie Fantôme.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SPECIALITES -->
+
+<section class="presentation" id="specialites">
+
+    <div class="section-titre">
+
+        <p>03 // personnel</p>
+
+        <h2>Spécialités</h2>
+
+        <div class="ligne"></div>
+
+    </div>
+
+    <div class="grille">
+
+        <div class="carte">
+
+            <span class="numero">SPÉCIALITÉ 01</span>
+
+            <h3>Assaut</h3>
+
+            <p>
+                Soldats spécialisés dans les opérations
+                offensives et les combats de première ligne.
+            </p>
+
+        </div>
+
+
+        <div class="carte">
+
+            <span class="numero">SPÉCIALITÉ 02</span>
+
+            <h3>Médecin</h3>
+
+            <p>
+                Personnel chargé du soutien médical
+                et de la stabilisation des unités.
+            </p>
+
+        </div>
+
+
+        <div class="carte">
+
+            <span class="numero">SPÉCIALITÉ 03</span>
+
+            <h3>Artilleur</h3>
+
+            <p>
+                Utilisation des armes lourdes
+                et soutien aux unités d'assaut.
+            </p>
+
+        </div>
+
+
+        <div class="carte">
+
+            <span class="numero">SPÉCIALITÉ 04</span>
+
+            <h3>Reconnaissance</h3>
+
+            <p>
+                Observation, reconnaissance du terrain
+                et transmission de renseignements.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FORMATIONS -->
+
+<section id="formations">
+
+    <div class="section-titre">
+
+        <p>04 // entraînement</p>
+
+        <h2>Formations</h2>
+
+        <div class="ligne"></div>
+
+    </div>
+
+    <div class="grille">
+
+        <div class="carte">
+
+            <span class="numero">FORMATION</span>
+
+            <h3>CQB</h3>
+
+            <p>
+                Progression en bâtiment,
+                gestion des angles et combat rapproché.
+            </p>
+
+        </div>
+
+
+        <div class="carte">
+
+            <span class="numero">FORMATION</span>
+
+            <h3>Combat</h3>
+
+            <p>
+                Bases du combat,
+                déplacement et coordination d'escouade.
+            </p>
+
+        </div>
+
+
+        <div class="carte">
+
+            <span class="numero">FORMATION</span>
+
+            <h3>Commandement</h3>
+
+            <p>
+                Gestion d'une escouade,
+                communication et prise de décision.
+            </p>
+
+        </div>
+
+
+        <div class="carte">
+
+            <span class="numero">FORMATION</span>
+
+            <h3>Opérations</h3>
+
+            <p>
+                Préparation aux différentes situations
+                rencontrées sur le terrain.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- REGLEMENT -->
+
+<section class="presentation" id="reglement">
+
+    <div class="section-titre">
+
+        <p>05 // directives</p>
+
+        <h2>Règlement</h2>
+
+        <div class="ligne"></div>
+
+    </div>
+
+    <div class="reglement">
+
+        <div class="regle">
+
+            <h3>DIRECTIVE 01 // DISCIPLINE</h3>
+
+            <p>
+                Chaque membre de la Compagnie Fantôme doit respecter
+                la hiérarchie et les ordres donnés par ses supérieurs.
+            </p>
+
+        </div>
+
+
+        <div class="regle">
+
+            <h3>DIRECTIVE 02 // COMPORTEMENT</h3>
+
+            <p>
+                Un comportement sérieux et respectueux est attendu
+                de chaque membre de l'unité.
+            </p>
+
+        </div>
+
+
+        <div class="regle">
+
+            <h3>DIRECTIVE 03 // OPÉRATIONS</h3>
+
+            <p>
+                Lors d'une opération, chaque unité doit rester
+                avec son groupe et respecter les communications.
+            </p>
+
+        </div>
+
+
+        <div class="regle">
+
+            <h3>DIRECTIVE 04 // IMAGE DU 212TH</h3>
+
+            <p>
+                Chaque soldat représente la Compagnie Fantôme
+                et plus largement le 212th Bataillon d'Attaque.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PIED DE PAGE -->
+
+<footer>
+
+    <strong>COMPAGNIE FANTÔME</strong>
+
+    <br><br>
+
+    212th Attack Battalion
+
+    <br>
+
+    Base de données interne // République Galactique
+
+</footer>
+
+</body>
+</html>
